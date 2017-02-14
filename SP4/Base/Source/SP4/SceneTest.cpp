@@ -42,10 +42,8 @@ void SceneTest::Init()
 	float halfWorldheight = worldHeight * 0.5f;
 
 	camera.Init(Vector3(halfWorldWidth, halfWorldheight, 1), Vector3(halfWorldWidth, halfWorldheight, 0), Vector3(0, 1, 0));
-
-	testy = Create::Entity(entityManager, "circle", Vector3(halfWorldWidth, halfWorldheight, 0));
-	testy2 = Create::Entity(entityManager, "circle", Vector3(halfWorldWidth * 1.2f, halfWorldheight*1.01, 0));
-	testy2->SetVelocity(Vector3(-5, 0, 0));
+	
+	testy = Create::Entity(entityManager, "circle", Vector3(Math::RandFloatMinMax(halfWorldWidth*0.25f, halfWorldWidth*0.75f), Math::RandFloatMinMax(halfWorldheight*0.25f, halfWorldheight*0.75f), 0));
 }
 
 void SceneTest::UpdateInputs(double dt)
@@ -66,26 +64,12 @@ void SceneTest::UpdateInputs(double dt)
 		testy->SetVelocity(Vector3(15, 0, 0));
 	if (KeyboardController::GetInstance()->IsKeyPressed('S'))
 		testy->SetVelocity(Vector3(0, -15, 0));
-
-	if (KeyboardController::GetInstance()->IsKeyPressed(VK_UP))
-		testy2->SetVelocity(Vector3(0, 15, 0));			
-	if (KeyboardController::GetInstance()->IsKeyPressed(VK_LEFT))
-		testy2->SetVelocity(Vector3(-15, 0, 0));		
-	if (KeyboardController::GetInstance()->IsKeyPressed(VK_RIGHT))
-		testy2->SetVelocity(Vector3(15, 0, 0));			
-	if (KeyboardController::GetInstance()->IsKeyPressed(VK_DOWN))
-		testy2->SetVelocity(Vector3(0, -15, 0));
 }
 
 void SceneTest::Update(double dt)
 {
 	SceneBase2D::Update(dt);
 	Client::GetInstance()->Update(dt);
-
-	if (Physics::CheckCollision(testy, testy2, dt))
-	{
-		Physics::CollisionResponse(testy, testy2);
-	}
 }
 
 void SceneTest::Render()

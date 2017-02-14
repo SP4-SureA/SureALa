@@ -156,3 +156,11 @@ bool SceneManager::CheckSceneExist(const std::string& _name)
 {
 	return sceneMap.count(_name) != 0;
 }
+
+Scene* SceneManager::GetScene(const std::string& _name)
+{
+	if (CheckSceneExist(_name))
+		return sceneMap[_name];
+	else
+		return NULL;
+}

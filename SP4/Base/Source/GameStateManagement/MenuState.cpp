@@ -67,11 +67,13 @@ void MenuState::UpdateInputs(double dt)
 	}
 	if (KeyboardController::GetInstance()->IsKeyPressed('H'))
 	{
-		Client::GetInstance()->Host(NULL);
+		Client::GetInstance()->Host(SceneManager::GetInstance()->GetScene("SceneTest"));
+		SceneManager::GetInstance()->SetActiveScene("SceneTest");
 	}
 	if (KeyboardController::GetInstance()->IsKeyPressed('J'))
 	{
-		Client::GetInstance()->Join(NULL);
+		Client::GetInstance()->Join(SceneManager::GetInstance()->GetScene("SceneTest"));
+		SceneManager::GetInstance()->SetActiveScene("SceneTest");
 	}
 }
 

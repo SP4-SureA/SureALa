@@ -37,6 +37,7 @@ void Client::Host(Scene* scene)
 	rakpeer_->SetMaximumIncomingConnections(DFL_MAX_CONNECTION);
 	rakpeer_->SetOccasionalPing(true);
 	std::cout << "Server Started" << std::endl;
+	//std::cout << rakpeer_->GetLocalIP(0) << std::endl;
 }
 
 bool Client::Join(Scene* scene)
@@ -107,8 +108,7 @@ bool Client::Update(double dt)
 			rakpeer_->DeallocatePacket(packet);
 			return true;
 		case ID_NEW_INCOMING_CONNECTION:
-				std::cout << "can host" << std::endl;
-				//SendWelcomePackage(packet->systemAddress);
+				SendWelcomePackage(packet->systemAddress);
 				break;
 		case ID_WELCOME:
 		{
@@ -425,6 +425,7 @@ void Client::SendWelcomePackage(SystemAddress& addr)
 	bs.Write(objCount);
 	std::cout << "sent " << objCount << " entity" << std::endl;
 	//std::list<EntityBase*>::iterator itr;
+	std::cout << NetworkEntityManager::GetInstance()->GetList().size()  << std::endl;
 	if (NetworkEntityManager::GetInstance()->GetList().size() > 0)
 	{
 		for (auto q : NetworkEntityManager::GetInstance()->GetList())
@@ -434,7 +435,7 @@ void Client::SendWelcomePackage(SystemAddress& addr)
 			q->WriteInit(bs);
 		}
 	}
-
+	
 	rakpeer_->Send(&bs, HIGH_PRIORITY, RELIABLE_ORDERED, 0, addr, false);
 
 	bs.Reset();

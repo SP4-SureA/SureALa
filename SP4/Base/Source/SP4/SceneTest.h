@@ -17,7 +17,6 @@ public:
 
 protected:
 	GenericEntity* testy;
-	GenericEntity* testy2;
 };
 
 #endif
