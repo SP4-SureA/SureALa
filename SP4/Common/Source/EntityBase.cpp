@@ -3,9 +3,11 @@
 EntityBase::EntityBase() 
 	: position(0.0f, 0.0f, 0.0f)
 	, scale(1.0f, 1.0f, 1.0f)
+    , velocity(0.0f, 0.0f, 0.0f)
 	, b_IsDone(false)
 	, b_IsDead(false)
 	, b_HasCollider(false)
+    , b_DoRender(true)
 {
 }
 

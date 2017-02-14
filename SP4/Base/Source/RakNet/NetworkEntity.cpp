@@ -6,7 +6,13 @@
 
 NetworkEntity::NetworkEntity(Mesh* _modelMesh) :
 GenericEntity(_modelMesh),
-ratio_(1)
+ratio_(1),
+ID(0),
+oldx(0),
+oldy(0),
+clientPos(0),
+serverPos(0),
+serverVel(0)
 {
 }
 
