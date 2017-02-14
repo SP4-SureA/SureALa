@@ -21,16 +21,20 @@ public:
 	inline Vector3 GetPosition(){ return position; };
 
 	inline void SetVelocity(const Vector3& _value){ this->velocity = _value; };
+    inline void AddVelocity(const Vector3& _value){ this->velocity += _value; };
 	inline Vector3 GetVelocity(){ return this->velocity; };
 
 	inline void SetScale(const Vector3& _value){ this->scale = _value; };
 	inline Vector3 GetScale(){ return this->scale; };
 
-	inline bool GetIsDone(){ return this->b_IsDone; };
-	inline bool GetIsDead(){ return this->b_IsDead; };
+    inline void SetIsDone(const bool _bool){ this->b_IsDone = _bool; };
+	inline bool GetIsDone(void){ return this->b_IsDone; };
 
-	void SetIsDone(const bool _bool){ this->b_IsDone = _bool; };
-	void GetIsDead(const bool _bool){ this->b_IsDead = _bool; };
+	inline void SetIsDead(const bool _bool){ this->b_IsDead = _bool; };
+    inline bool GetIsDead(void){ return this->b_IsDead; };
+
+    inline void SetShouldRender(const bool _bool){ this->b_DoRender = _bool; };
+    inline bool GetShouldRender(void){ return this->b_DoRender; };
 
 	// Check if this entity has a collider class parent
 	inline void SetHasCollider(const bool _bool){ this->b_HasCollider = _bool; };
@@ -44,7 +48,7 @@ protected:
 	bool b_IsDone;
 	bool b_IsDead;
 	bool b_HasCollider;
-	//bool b_DoRender?
+    bool b_DoRender;
 };
 
 #endif // _ENTITY_BASE_H

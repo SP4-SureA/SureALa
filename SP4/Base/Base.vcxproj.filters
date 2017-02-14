@@ -61,6 +61,9 @@
     <Filter Include="Physics">
       <UniqueIdentifier>{ef7be108-f127-4a40-9ec3-dfb3c58750e5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="PlayerInfo\PlayerEntityBase">
+      <UniqueIdentifier>{9668061e-a0d3-4680-a7bd-57243a391fc5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Application.cpp">
@@ -170,6 +173,9 @@
     </ClCompile>
     <ClCompile Include="Source\RakNet\NetworkEntityManager.cpp">
       <Filter>RakNet</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\PlayerInfo\PlayerEntityBase.cpp">
+      <Filter>PlayerInfo\PlayerEntityBase</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -283,6 +289,9 @@
     </ClInclude>
     <ClInclude Include="Source\RakNet\NetworkEntityManager.h">
       <Filter>RakNet</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\PlayerInfo\PlayerEntityBase.h">
+      <Filter>PlayerInfo\PlayerEntityBase</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

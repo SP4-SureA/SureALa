@@ -25,6 +25,7 @@
     <ClCompile Include="Source\main.cpp" />
     <ClCompile Include="Source\OBJMesh.cpp" />
     <ClCompile Include="Source\Physics\Physics.cpp" />
+    <ClCompile Include="Source\PlayerInfo\PlayerEntityBase.cpp" />
     <ClCompile Include="Source\PlayerInfo\PlayerInfo.cpp" />
     <ClCompile Include="Source\RakNet\Client.cpp" />
     <ClCompile Include="Source\RakNet\NetworkEntity.cpp" />
@@ -56,6 +57,7 @@
     <ClInclude Include="Source\LevelOfDetails.h" />
     <ClInclude Include="Source\Lua\LuaInterface.h" />
     <ClInclude Include="Source\Physics\Physics.h" />
+    <ClInclude Include="Source\PlayerInfo\PlayerEntityBase.h" />
     <ClInclude Include="Source\RakNet\Client.h" />
     <ClInclude Include="Source\RakNet\config.h" />
     <ClInclude Include="Source\RakNet\NetworkEntity.h" />
