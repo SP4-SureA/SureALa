@@ -22,14 +22,15 @@ public:
 	~Server();
 
 	void Init();
+	void Close();
 	void Update(double dt);
 
 	void AnnounceNewObject(NetworkEntity* obj);
 	void AnnounceCollision(NetworkEntity* a, NetworkEntity* b);
 
-	//typedef std::map<SystemAddress, Fighter*> ClientMap;
+	typedef std::map<SystemAddress, NetworkEntity*> ClientMap;
 
-	//ClientMap clients_;
+	ClientMap clients_;
 
 	std::queue<SystemAddress> clientQueue;
 protected:
@@ -42,8 +43,6 @@ protected:
 	void SendWelcomePackage(SystemAddress& addr);
 	void SendDisconnectionNotification(SystemAddress& addr);
 	void ProcessInitialPosition(SystemAddress& addr, float x_, float y_, int type_);
-	void UpdatePosition(SystemAddress& addr, float x_, float y_);
-
 
 };
 

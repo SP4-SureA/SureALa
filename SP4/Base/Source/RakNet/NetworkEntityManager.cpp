@@ -18,7 +18,7 @@ void NetworkEntityManager::UpdateInterpolations(double dt)
 	}
 }
 
-void NetworkEntityManager::AddEntity(NetworkEntity* _newEntity, bool bAddToSpatialPartition)
+void NetworkEntityManager::AddEntity(NetworkEntity* _newEntity)
 {
 	networkEntityList.push_back(_newEntity);
 }

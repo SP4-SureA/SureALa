@@ -15,12 +15,12 @@ public:
 	virtual ~NetworkEntityManager();
 	virtual void UpdateInterpolations(double dt);
 
-	void AddEntity(NetworkEntity* _newEntity, bool bAddToSpatialPartition = false);
+	void AddEntity(NetworkEntity* _newEntity);
 	bool RemoveEntity(NetworkEntity* _existingEntity);
 	bool RemoveEntity(unsigned int id);
 	void ClearList();
 
-	std::list<NetworkEntity*> GetList();
+	inline std::list<NetworkEntity*> GetList(){ return this->networkEntityList; }
 
 protected:
 	NetworkEntityManager();

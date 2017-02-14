@@ -12,6 +12,8 @@
 #include "MouseController.h"
 #include "SceneManager.h"
 
+#include "..\RakNet\Client.h"
+
 MenuState::MenuState()
 {
 }
@@ -63,10 +65,19 @@ void MenuState::UpdateInputs(double dt)
 			SceneManager::GetInstance()->SetActiveScene("SceneTest");
 		}
 	}
+	if (KeyboardController::GetInstance()->IsKeyPressed('H'))
+	{
+		Client::GetInstance()->Host(NULL);
+	}
+	if (KeyboardController::GetInstance()->IsKeyPressed('J'))
+	{
+		Client::GetInstance()->Join(NULL);
+	}
 }
 
 void MenuState::Update(double dt)
 {
+	Client::GetInstance()->Update(dt);
 }
 
 void MenuState::Render()

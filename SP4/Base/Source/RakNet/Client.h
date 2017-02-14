@@ -3,6 +3,9 @@
 
 #include "SingletonTemplate.h"
 
+#include "RakNetTypes.h"
+
+class Scene;
 class RakPeerInterface;
 class NetworkEntity;
 
@@ -12,7 +15,9 @@ class Client : public Singleton<Client>
 public:
 	~Client();
 
-	bool Init();
+	void Host(Scene* scene);
+	bool Join(Scene* scene);
+	void Close();
 	bool Update(double dt);
 
 	void AnnounceNewObject(NetworkEntity* obj);
@@ -22,6 +27,9 @@ public:
 protected:
 	Client();
 
+	unsigned int newID;
+	Scene* scene;
+
 	//typedef std::vector<Ship*> ShipList;  //!< A list of ships
 	//ShipList ships_; //!< List of all the ships in the universe
 	RakPeerInterface* rakpeer_;
@@ -29,6 +37,8 @@ protected:
 
 	//bool checkCollisions(Ship* ship);
 	//void ProcessWelcomePackage();
+	void SendWelcomePackage(SystemAddress& addr);
+	void SendDisconnectionNotification(SystemAddress& addr);
 	bool SendInitialPosition();
 
 	//void SendCollision(Ship* ship);

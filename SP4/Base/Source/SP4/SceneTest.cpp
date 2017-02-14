@@ -12,6 +12,7 @@
 #include "MouseController.h"
 #include "SceneManager.h"
 #include "..\Physics\Physics.h"
+#include "..\RakNet\Client.h"
 
 SceneTest::SceneTest()
 {
@@ -57,13 +58,29 @@ void SceneTest::UpdateInputs(double dt)
 	mouseY = (mouseY / Application::GetInstance().GetWindowHeight()) * orthoHeight + (camera.GetCameraPos().x - (orthoWidth*0.5f));
 	Vector3 mousePos(mouseX, mouseY, 0);
 
-	if (KeyboardController::GetInstance()->IsKeyPressed('V'))
+	if (KeyboardController::GetInstance()->IsKeyPressed('W'))
+		testy->SetVelocity(Vector3(0, 15, 0));
+	if (KeyboardController::GetInstance()->IsKeyPressed('A'))
+		testy->SetVelocity(Vector3(-15, 0, 0));
+	if (KeyboardController::GetInstance()->IsKeyPressed('D'))
 		testy->SetVelocity(Vector3(15, 0, 0));
+	if (KeyboardController::GetInstance()->IsKeyPressed('S'))
+		testy->SetVelocity(Vector3(0, -15, 0));
+
+	if (KeyboardController::GetInstance()->IsKeyPressed(VK_UP))
+		testy2->SetVelocity(Vector3(0, 15, 0));			
+	if (KeyboardController::GetInstance()->IsKeyPressed(VK_LEFT))
+		testy2->SetVelocity(Vector3(-15, 0, 0));		
+	if (KeyboardController::GetInstance()->IsKeyPressed(VK_RIGHT))
+		testy2->SetVelocity(Vector3(15, 0, 0));			
+	if (KeyboardController::GetInstance()->IsKeyPressed(VK_DOWN))
+		testy2->SetVelocity(Vector3(0, -15, 0));
 }
 
 void SceneTest::Update(double dt)
 {
 	SceneBase2D::Update(dt);
+	Client::GetInstance()->Update(dt);
 
 	if (Physics::CheckCollision(testy, testy2, dt))
 	{

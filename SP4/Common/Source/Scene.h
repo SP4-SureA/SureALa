@@ -15,6 +15,8 @@ public:
 	virtual void Render() = 0;
 	virtual void Exit() = 0;
 
+	inline EntityManager* GetEntityManager(){ return this->entityManager; }
+
 	EntityManager* entityManager;
 };
 
