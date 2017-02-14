@@ -5,7 +5,7 @@
 
 class EntityBase;
 
-class PlayerInfo : Singleton<PlayerInfo>
+class PlayerInfo : public Singleton<PlayerInfo>
 {
 	friend Singleton<PlayerInfo>;
 public:
