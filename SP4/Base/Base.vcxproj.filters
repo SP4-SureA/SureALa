@@ -64,6 +64,33 @@
     <Filter Include="PlayerInfo\PlayerEntityBase">
       <UniqueIdentifier>{9668061e-a0d3-4680-a7bd-57243a391fc5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="SP4\PlayerEntityTestScene">
+      <UniqueIdentifier>{c9912ffa-cffb-47cf-a573-47ced293eb7d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PlayerInfo\PlayerEntity">
+      <UniqueIdentifier>{e878ddb0-36ed-4391-adea-8fc8c5c05323}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Weapon">
+      <UniqueIdentifier>{b0a4e1cd-254e-4c77-94e2-95cf6f4bb5d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Projectile">
+      <UniqueIdentifier>{257856bc-e1f9-4f9e-99f3-1a901863a8ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Projectile\Player Projectile">
+      <UniqueIdentifier>{7babfd57-9e7a-4ebb-9f48-d11d7e5d796c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Projectile\Enemy Projectile">
+      <UniqueIdentifier>{03b16522-5ed5-453d-b4c4-4c0e3136109b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Projectile\Projectile Base">
+      <UniqueIdentifier>{a6c339f4-e618-429e-b671-1a5b4c224ca3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Weapon\Weapon Base">
+      <UniqueIdentifier>{e1dc0c16-7313-42eb-b252-47ba90ff282d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Weapon\Player Weapon">
+      <UniqueIdentifier>{2d195fac-abfe-4073-9836-fb1fb8c7a279}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Application.cpp">
@@ -176,6 +203,24 @@
     </ClCompile>
     <ClCompile Include="Source\PlayerInfo\PlayerEntityBase.cpp">
       <Filter>PlayerInfo\PlayerEntityBase</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SP4\ScenePlayerEntityTest.cpp">
+      <Filter>SP4\PlayerEntityTestScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Projectile\PlayerProjectileEntity.cpp">
+      <Filter>Projectile\Player Projectile</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Projectile\EnemyProjectileEntity.cpp">
+      <Filter>Projectile\Enemy Projectile</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Projectile\ProjectileBase.cpp">
+      <Filter>Projectile\Projectile Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Weapon\WeaponBase.cpp">
+      <Filter>Weapon\Weapon Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Weapon\PlayerRangeWeapon.cpp">
+      <Filter>Weapon\Player Weapon</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -292,6 +337,24 @@
     </ClInclude>
     <ClInclude Include="Source\PlayerInfo\PlayerEntityBase.h">
       <Filter>PlayerInfo\PlayerEntityBase</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SP4\ScenePlayerEntityTest.h">
+      <Filter>SP4\PlayerEntityTestScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Projectile\PlayerProjectileEntity.h">
+      <Filter>Projectile\Player Projectile</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Projectile\EnemyProjectileEntity.h">
+      <Filter>Projectile\Enemy Projectile</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Projectile\ProjectileBase.h">
+      <Filter>Projectile\Projectile Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Weapon\WeaponBase.h">
+      <Filter>Weapon\Weapon Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Weapon\PlayerRangeWeapon.h">
+      <Filter>Weapon\Player Weapon</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
