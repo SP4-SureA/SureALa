@@ -107,8 +107,8 @@ bool Client::Update(double dt)
 			rakpeer_->DeallocatePacket(packet);
 			return true;
 		case ID_NEW_INCOMING_CONNECTION:
-			std::cout << "can host" << std::endl;
-				SendWelcomePackage(packet->systemAddress);
+				std::cout << "can host" << std::endl;
+				//SendWelcomePackage(packet->systemAddress);
 				break;
 		case ID_WELCOME:
 		{
