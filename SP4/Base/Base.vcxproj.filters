@@ -162,9 +162,6 @@
     <ClCompile Include="Source\LevelOfDetails.cpp">
       <Filter>LevelOfDetails</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Enemy.cpp">
-      <Filter>Enemy</Filter>
-    </ClCompile>
     <ClCompile Include="Source\SceneGraph\SpatialPartition.cpp">
       <Filter>SceneGraph</Filter>
     </ClCompile>
@@ -218,6 +215,12 @@
     </ClCompile>
     <ClCompile Include="Source\Projectile\ProjectileBase.cpp">
       <Filter>Projectile\Projectile Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Enemy\EnemyBase.cpp">
+      <Filter>Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\PlayerInfo\PlayerRangeEntity.cpp">
+      <Filter>PlayerInfo\PlayerEntity</Filter>
     </ClCompile>
     <ClCompile Include="Source\Weapon\PlayerRangeWeapon.cpp">
       <Filter>Weapon\Player Weapon</Filter>
@@ -290,9 +293,6 @@
     <ClInclude Include="Source\LevelOfDetails.h">
       <Filter>LevelOfDetails</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Enemy.h">
-      <Filter>Enemy</Filter>
-    </ClInclude>
     <ClInclude Include="Source\SceneGraph\SpatialPartition.h">
       <Filter>SceneGraph</Filter>
     </ClInclude>
@@ -352,6 +352,12 @@
     </ClInclude>
     <ClInclude Include="Source\Projectile\ProjectileBase.h">
       <Filter>Projectile\Projectile Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Enemy\EnemyBase.h">
+      <Filter>Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\PlayerInfo\PlayerRangeEntity.h">
+      <Filter>PlayerInfo\PlayerEntity</Filter>
     </ClInclude>
     <ClInclude Include="Source\Weapon\PlayerRangeWeapon.h">
       <Filter>Weapon\Player Weapon</Filter>

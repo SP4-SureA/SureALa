@@ -17,7 +17,7 @@ public:
     virtual ~PlayerRangeWeapon();
 
     virtual void Update(double dt);
-    virtual void Discharge();
+    virtual void Discharge(Vector3 Direction);
 
 protected:
 };

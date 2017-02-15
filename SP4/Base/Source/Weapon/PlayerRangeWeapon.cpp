@@ -5,6 +5,8 @@
 #include "EntityManager.h"
 #include "GraphicsManager.h"
 #include "RenderHelper.h"
+#include "../Projectile/PlayerProjectileEntity.h"
+#include "EntityManager.h"
 
 PlayerRangeWeapon::PlayerRangeWeapon()
 {
@@ -28,9 +30,9 @@ void PlayerRangeWeapon::Update(double dt)
     }
 }
 
-void PlayerRangeWeapon::Discharge()
+void PlayerRangeWeapon::Discharge(Vector3 Direction)
 {
-
+	//Create::playerProjectileEntity();
 }
 
 

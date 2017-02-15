@@ -39,6 +39,8 @@ void MenuState::Init()
 
 	MeshBuilder::GetInstance()->GenerateSprite("player_shield", 16, 4, 2.0f);
 	MeshBuilder::GetInstance()->GetMesh("player_shield")->textureID = LoadTGA("Image//spritesheet_shield.tga");
+	MeshBuilder::GetInstance()->GenerateSprite("player_staff", 16, 4, 2.0f);
+	MeshBuilder::GetInstance()->GetMesh("player_staff")->textureID = LoadTGA("Image//spritesheet_staff.tga");
 
 	float animSpeed = 0.7f;
 	AnimationManager::GetInstance("player_shield")->AddAnimation("right", new Animation(32, 35, animSpeed));
@@ -75,7 +77,7 @@ void MenuState::Init()
 	camera.Init(Vector3(halfWindowWidth, halfWindowHeight, 1), Vector3(halfWindowWidth, halfWindowHeight, 0), Vector3(0, 1, 0));
 
 	PlayerInfo::GetInstance()->SetCharacter(Create::PlayerEntity(SceneManager::GetInstance()->GetScene("SceneScrolling")->GetEntityManager(), "player_shield", 10, 1, Vector3(50, 50, 0), Vector3(3, 3, 1)));
-	//PlayerInfo::GetInstance()->SetCharacter(Create::PlayerEntity(SceneManager::GetInstance()->GetScene("SceneTest")->GetEntityManager(), "circle", 40, 5, Vector3(50, 50, 0), Vector3(3, 3, 1)));
+	NetworkEntityManager::GetInstance()->AddEntity(PlayerInfo::GetInstance()->GetCharacter());
 
 	background = Create::Entity(entityManager, "MENUSTATE_BKGROUND", Vector3(halfWindowWidth, halfWindowHeight, -1.0f), Vector3(orthoWidth, orthoHeight, 1));
 	playBtn = Create::button(entityManager, "playBtn", Vector3(halfWindowWidth, halfWindowHeight, 0.0f), Vector3(200, 60, 1));

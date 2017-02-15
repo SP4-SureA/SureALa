@@ -12,18 +12,20 @@ namespace RakNet
 	class BitStream;
 };
 
+class WeaponBase;
+
 class PlayerEntityBase : public NetworkEntity
 {
 public:
-    PlayerEntityBase(Mesh* _modelMesh);
-    virtual ~PlayerEntityBase();
+	PlayerEntityBase(Mesh* _modelMesh);
+	virtual ~PlayerEntityBase();
 
-	void UpdateSprite();
+	virtual void UpdateAnimation(double dt);
 
-    virtual void UpdateInputs(double dt);
-    virtual void Update(double dt);
+	virtual void UpdateInputs(double dt);
 	virtual void HandleOutOfBounds(Vector3 min, Vector3 max, double dt);
-    virtual void Render();
+	virtual void Update(double dt);
+	virtual void Render();
 
 	virtual void Read(RakNet::BitStream &bs);
 	virtual void Write(RakNet::BitStream &bs);
@@ -31,38 +33,48 @@ public:
 	virtual void ReadInit(RakNet::BitStream &bs);
 	virtual void WriteInit(RakNet::BitStream &bs);
 
-    inline void SetMoveDir(const Vector3& _value){ this->moveDirection = _value; };
-    inline void AddMoveDir(const Vector3& _value){ this->moveDirection += _value; };
-    inline Vector3 GetMoveDir(void){ return this->moveDirection; };
+	inline void SetMoveDir(const Vector3& _value){ this->moveDirection = _value; };
+	inline void AddMoveDir(const Vector3& _value){ this->moveDirection += _value; };
+	inline Vector3 GetMoveDir(void){ return this->moveDirection; };
 
-    inline void SetMoveSpeed(const float& _value){ this->moveSpeed = _value; };
-    inline float GetMoveSpeed(void){ return this->moveSpeed; };
+	inline void SetShootDir(const Vector3& _dir){ this->shootDirection = _dir; };
+	inline void AddShootDir(const Vector3& _dir){ this->shootDirection += _dir; };
+	inline Vector3 GetShootDir(void){ return this->shootDirection; };
+
+	inline void SetMoveSpeed(const float& _value){ this->moveSpeed = _value; };
+	inline float GetMoveSpeed(void){ return this->moveSpeed; };
+
+	inline void SetWeapon(WeaponBase* _weapon){ this->weapon = _weapon; };
+	inline WeaponBase* GetWeapon(void){ return this->weapon; };
 
 	AnimationPlayer animationPlayer;
 protected:
-    float moveSpeed;
-    Vector3 moveDirection;
+	float moveSpeed;
 
+	WeaponBase* weapon;
+
+	Vector3 moveDirection;
+	Vector3 shootDirection;
 };
 
 namespace Create
 {
-    PlayerEntityBase* PlayerEntity(
-        EntityManager* em,
-        const std::string& _meshName,
-        float _moveSpeed = 0,
-        float _maxSpeed = 0,
-        const Vector3& _position = Vector3(0, 0, 0) ,
-        const Vector3& _scale = Vector3(1.0f, 1.0f, 1.0f)
-        );
+	PlayerEntityBase* PlayerEntity(
+		EntityManager* em,
+		const std::string& _meshName,
+		float _moveSpeed = 0,
+		float _maxSpeed = 0,
+		const Vector3& _position = Vector3(0, 0, 0),
+		const Vector3& _scale = Vector3(1.0f, 1.0f, 1.0f)
+		);
 
-    PlayerEntityBase* PlayerAsset(
-        const std::string& _meshName,
-        float _moveSpeed = 0,
-        float _maxSpeed = 0,
-        const Vector3& _position = Vector3(0, 0, 0),
-        const Vector3& _scale = Vector3(1.0f, 1.0f, 1.0f)
-        );
+	PlayerEntityBase* PlayerAsset(
+		const std::string& _meshName,
+		float _moveSpeed = 0,
+		float _maxSpeed = 0,
+		const Vector3& _position = Vector3(0, 0, 0),
+		const Vector3& _scale = Vector3(1.0f, 1.0f, 1.0f)
+		);
 };
 
 #endif // _PLAYER_ENTITY_BASE_H

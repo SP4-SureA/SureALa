@@ -14,7 +14,8 @@ void NetworkEntityManager::UpdateInterpolations(double dt)
 {
 	for (auto q : networkEntityList)
 	{
-		q->UpdateInterpolation(dt);
+		if (!q->GetShouldUpdate())
+			q->UpdateInterpolation(dt);
 	}
 }
 

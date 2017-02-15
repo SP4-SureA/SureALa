@@ -13,7 +13,7 @@
   <ItemGroup>
     <ClCompile Include="Source\Application.cpp" />
     <ClCompile Include="Source\Button.cpp" />
-    <ClCompile Include="Source\Enemy.cpp" />
+    <ClCompile Include="Source\Enemy\EnemyBase.cpp" />
     <ClCompile Include="Source\FPSCamera.cpp" />
     <ClCompile Include="Source\GameStateManagement\MenuState.cpp" />
     <ClCompile Include="Source\GameStateManagement\PauseState.cpp" />
@@ -27,6 +27,7 @@
     <ClCompile Include="Source\Physics\Physics.cpp" />
     <ClCompile Include="Source\PlayerInfo\PlayerEntityBase.cpp" />
     <ClCompile Include="Source\PlayerInfo\PlayerInfo.cpp" />
+    <ClCompile Include="Source\PlayerInfo\PlayerRangeEntity.cpp" />
     <ClCompile Include="Source\Projectile\EnemyProjectileEntity.cpp" />
     <ClCompile Include="Source\Projectile\PlayerProjectileEntity.cpp" />
     <ClCompile Include="Source\Projectile\ProjectileBase.cpp" />
@@ -57,13 +58,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Button.h" />
-    <ClInclude Include="Source\Enemy.h" />
+    <ClInclude Include="Source\Enemy\EnemyBase.h" />
     <ClInclude Include="Source\GameStateManagement\MenuState.h" />
     <ClInclude Include="Source\GameStateManagement\PauseState.h" />
     <ClInclude Include="Source\LevelOfDetails.h" />
     <ClInclude Include="Source\Lua\LuaInterface.h" />
     <ClInclude Include="Source\Physics\Physics.h" />
     <ClInclude Include="Source\PlayerInfo\PlayerEntityBase.h" />
+    <ClInclude Include="Source\PlayerInfo\PlayerRangeEntity.h" />
     <ClInclude Include="Source\Projectile\EnemyProjectileEntity.h" />
     <ClInclude Include="Source\Projectile\PlayerProjectileEntity.h" />
     <ClInclude Include="Source\Projectile\ProjectileBase.h" />

@@ -30,7 +30,6 @@ void NetworkEntity::WriteInit(RakNet::BitStream &bs){}
 void NetworkEntity::UpdateInterpolation(double dt)
 {
 	serverPos += serverVel * dt;
-
 	clientPos += velocity * dt;
 
 	position = ratio_ * serverPos + (1 - ratio_) * clientPos;

@@ -2,7 +2,6 @@
 #define SCENE_TEXT_H
 
 #include "SceneBase3D.h"
-#include "Enemy.h"
 
 class ShaderProgram;
 class SceneManager;
@@ -23,9 +22,6 @@ private:
 
 	//CPlayerInfo* playerInfo;
 	GroundEntity* groundEntity;
-
-	//Enemy* theEnemy;
-
 };
 
 #endif

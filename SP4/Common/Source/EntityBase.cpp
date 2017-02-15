@@ -20,6 +20,10 @@ void EntityBase::UpdateInputs(double dt)
 {
 }
 
+void EntityBase::UpdateAnimation(double dt)
+{
+}
+
 void EntityBase::Update(double _dt)
 {
 	if (this->b_IsDead)

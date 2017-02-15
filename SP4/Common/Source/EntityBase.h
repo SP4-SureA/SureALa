@@ -10,6 +10,7 @@ public:
 	virtual ~EntityBase();
 
 	virtual void UpdateInputs(double dt);
+	virtual void UpdateAnimation(double dt);
 	virtual void Update(double dt);
 	virtual void Render();
 	virtual void RenderUI();

@@ -63,7 +63,6 @@ void SceneScrolling::UpdateInputs(double dt)
 
 void SceneScrolling::Update(double dt)
 {
-	std::cout << entityManager->GetList().size() << std::endl;
 	orthoWidth = orthoHeight * ((float)Application::GetInstance().GetWindowWidth() / Application::GetInstance().GetWindowHeight());
 	Client::GetInstance()->Update(dt);
 	SceneBase2D::Update(dt);

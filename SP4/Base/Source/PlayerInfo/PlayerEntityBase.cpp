@@ -9,6 +9,9 @@
 
 #include "BitStream.h"
 
+//testy
+#include "PlayerInfo.h"
+
 PlayerEntityBase::PlayerEntityBase(Mesh* _modelMesh) :
 NetworkEntity(_modelMesh),
 moveSpeed(0),
@@ -22,28 +25,28 @@ PlayerEntityBase::~PlayerEntityBase()
 
 void PlayerEntityBase::UpdateInputs(double dt)
 {
+	moveDirection.SetZero();
+
     if (KeyboardController::GetInstance()->IsKeyDown('W'))
     {
         AddMoveDir(Vector3(0, 1, 0));
     }
-    if (KeyboardController::GetInstance()->IsKeyDown('A'))
-    {
-        AddMoveDir(Vector3(-1, 0, 0));
-    }
     if (KeyboardController::GetInstance()->IsKeyDown('S'))
     {
-        AddMoveDir(Vector3(0, -1, 0));
+		AddMoveDir(Vector3(0, -1, 0));
+    }
+    if (KeyboardController::GetInstance()->IsKeyDown('A'))
+    {
+		AddMoveDir(Vector3(-1, 0, 0));
     }
     if (KeyboardController::GetInstance()->IsKeyDown('D'))
     {
         AddMoveDir(Vector3(1, 0, 0));
-    }
+    }	
 }
 
 void PlayerEntityBase::Update(double dt)
 {
-	UpdateSprite();
-
     if (moveDirection.IsZero())
     {
         this->velocity.Lerp(0, dt * 10);
@@ -51,13 +54,9 @@ void PlayerEntityBase::Update(double dt)
     else
     {
         SetVelocity(moveSpeed * moveDirection * dt);
-
-        moveDirection.SetZero();
     }
     ClampSpeed();
     this->position += this->velocity;
-
-	animationPlayer.Update(dt);
 }
 
 void PlayerEntityBase::HandleOutOfBounds(Vector3 min, Vector3 max, double dt)
@@ -85,7 +84,7 @@ void PlayerEntityBase::HandleOutOfBounds(Vector3 min, Vector3 max, double dt)
 	}
 }
 
-void PlayerEntityBase::UpdateSprite()
+void PlayerEntityBase::UpdateAnimation(double dt)
 {
 	if (moveDirection.IsZero())//no moving
 	{
@@ -98,9 +97,8 @@ void PlayerEntityBase::UpdateSprite()
 		{
 			if (moveDirection.x > 0)
 				animationPlayer.m_anim = AnimationManager::GetInstance("player_shield")->GetAnimation("right");
-			else{
+			else
 				animationPlayer.m_anim = AnimationManager::GetInstance("player_shield")->GetAnimation("left");
-			}
 		}
 		else if (abs(moveDirection.y) > abs(moveDirection.x)) //vertical direction
 		{
@@ -127,6 +125,8 @@ void PlayerEntityBase::UpdateSprite()
 			}
 		}
 	}
+
+	animationPlayer.Update(dt);
 }
 
 void PlayerEntityBase::Render()
@@ -143,14 +143,18 @@ void PlayerEntityBase::Read(RakNet::BitStream &bs)
 {
 	float posX, posY;
 	float velX, velY;
+	float moveDirX, moveDirY;
 
 	bs.Read(posX);
 	bs.Read(posY);
 	bs.Read(velX);
 	bs.Read(velY);
+	bs.Read(moveDirX);
+	bs.Read(moveDirY);
 
 	SetServerPos(posX, posY);
 	SetServerVel(velX, velY);
+	this->moveDirection.Set(moveDirX, moveDirY, 0);
 }
 
 void PlayerEntityBase::Write(RakNet::BitStream &bs)
@@ -159,6 +163,8 @@ void PlayerEntityBase::Write(RakNet::BitStream &bs)
 	bs.Write(GetPosition().y);
 	bs.Write(GetVelocity().x);
 	bs.Write(GetVelocity().y);
+	bs.Write(moveDirection.x);
+	bs.Write(moveDirection.y);
 }
 
 void PlayerEntityBase::ReadInit(RakNet::BitStream &bs)

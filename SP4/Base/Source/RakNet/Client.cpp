@@ -629,7 +629,7 @@ bool Client::Update(double dt)
 				bs.Read(entityCount);
 
 				PlayerEntityBase* testy = Create::PlayerEntity(SceneManager::GetInstance()->GetScene("SceneScrolling")->GetEntityManager(), "player_shield", 0.0f, 0.0f, Vector3(), Vector3(3, 3, 3));
-				std::cout << testy << std::endl;
+				testy->SetShouldUpdate(false);
 				bs.Read(id);
 				testy->SetID(id);
 				NetworkEntityManager::GetInstance()->AddEntity(testy);
@@ -727,12 +727,8 @@ bool Client::Update(double dt)
 					{
 						if (q->GetID() == id)
 						{
-							float x, y;
+							q->Read(bs);
 
-							bs.Read(x);
-							bs.Read(y);
-
-							q->SetServerPos(Vector3(x, y, 0));
 							q->DoInterpolation();
 							break;
 						}
@@ -860,9 +856,11 @@ bool Client::Update(double dt)
 		RakNet::BitStream bs2;
 		unsigned char msgid = ID_MOVEMENT;
 		bs2.Write(msgid);
-		bs2.Write(PlayerInfo::GetInstance()->GetCharacter()->GetID());
-		bs2.Write(PlayerInfo::GetInstance()->GetCharacter()->GetPosition().x);
-		bs2.Write(PlayerInfo::GetInstance()->GetCharacter()->GetPosition().y);
+		for (auto q : NetworkEntityManager::GetInstance()->GetList())
+		{
+			bs2.Write(PlayerInfo::GetInstance()->GetCharacter()->GetID());
+			PlayerInfo::GetInstance()->GetCharacter()->Write(bs2);
+		}
 //
 //		// Lab 13 Task 2 : Interpolation
 //#ifdef INTERPOLATEMOVEMENT
@@ -958,7 +956,6 @@ void Client::SendWelcomePackage(SystemAddress& addr)
 	{
 		for (auto q : NetworkEntityManager::GetInstance()->GetList())
 		{
-			//std::cout << "go:  " << (*itr)->GetID() << " pos" << (*itr)->GetPosition().x << " " << (*itr)->GetPosition().y << std::endl;
 			bs.Write(q->GetID());
 			q->WriteInit(bs);
 		}
@@ -968,8 +965,9 @@ void Client::SendWelcomePackage(SystemAddress& addr)
 
 	bs.Reset();
 
-	NetworkEntity* go = Create::networkEntity(scene->GetEntityManager(), "circle", Vector3(), Vector3(3, 3, 3));
+	PlayerEntityBase* go = Create::PlayerEntity(scene->GetEntityManager(), "player_shield", 0.0f, 0.0f, Vector3(), Vector3(3, 3, 3));
 	NetworkEntityManager::GetInstance()->AddEntity(go);
+	go->SetShouldUpdate(false);
 	go->SetID(newID);
 	//clients_.insert(std::make_pair(addr, go));
 
