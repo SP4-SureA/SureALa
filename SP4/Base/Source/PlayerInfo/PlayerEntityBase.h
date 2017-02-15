@@ -10,6 +10,8 @@ namespace RakNet
 	class BitStream;
 };
 
+class WeaponBase;
+
 class PlayerEntityBase : public NetworkEntity
 {
 public:
@@ -30,13 +32,23 @@ public:
     inline void AddMoveDir(const Vector3& _value){ this->moveDirection += _value; };
     inline Vector3 GetMoveDir(void){ return this->moveDirection; };
 
+	inline void SetShootDir(const Vector3& _dir){ this->shootDirection = _dir; };
+	inline void AddShootDir(const Vector3& _dir){ this->shootDirection += _dir; };
+	inline Vector3 GetShootDir(void){ return this->shootDirection; };
+
     inline void SetMoveSpeed(const float& _value){ this->moveSpeed = _value; };
     inline float GetMoveSpeed(void){ return this->moveSpeed; };
 
+	inline void SetWeapon(WeaponBase* _weapon){ this->weapon = _weapon; };
+	inline WeaponBase* GetWeapon(void){ return this->weapon; };
+
 protected:
     float moveSpeed;
-    Vector3 moveDirection;
+	
+	WeaponBase* weapon;
 
+    Vector3 moveDirection;
+	Vector3 shootDirection;
 };
 
 namespace Create

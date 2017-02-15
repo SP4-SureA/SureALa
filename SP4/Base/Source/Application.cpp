@@ -20,6 +20,7 @@
 #include "SceneText2.h"
 #include "GameStateManagement\MenuState.h"
 #include "GameStateManagement\PauseState.h"
+#include "SP4\ScenePlayerEntityTest.h"
 #include "SP4\SceneTest.h"
 
 GLFWwindow* m_window;
@@ -190,7 +191,8 @@ void Application::Init()
 	SceneManager::GetInstance()->AddScene("MenuState", new MenuState());
 	SceneManager::GetInstance()->AddScene("PauseState", new PauseState());
 	SceneManager::GetInstance()->AddScene("SceneTest", new SceneTest());
-
+	SceneManager::GetInstance()->AddScene("PlayerEntityTest", new ScenePlayerEntityTest());
+	
 	SceneManager::GetInstance()->SetActiveScene("MenuState");
 }
 

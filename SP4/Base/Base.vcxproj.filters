@@ -91,6 +91,9 @@
     <Filter Include="Weapon\Player Weapon">
       <UniqueIdentifier>{2d195fac-abfe-4073-9836-fb1fb8c7a279}</UniqueIdentifier>
     </Filter>
+    <Filter Include="PlayerInfo\PlayerEntity\Ranged Entity">
+      <UniqueIdentifier>{55b1ed74-d74a-43c0-bb67-e6ee1ab7d260}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Application.cpp">
@@ -204,8 +207,11 @@
     <ClCompile Include="Source\PlayerInfo\PlayerEntityBase.cpp">
       <Filter>PlayerInfo\PlayerEntityBase</Filter>
     </ClCompile>
-    <ClCompile Include="Source\SP4\ScenePlayerEntityTest.cpp">
-      <Filter>SP4\PlayerEntityTestScene</Filter>
+    <ClCompile Include="Source\Weapon\PlayerRangeWeapon.cpp">
+      <Filter>Weapon\Player Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Weapon\WeaponBase.cpp">
+      <Filter>Weapon\Weapon Base</Filter>
     </ClCompile>
     <ClCompile Include="Source\Projectile\PlayerProjectileEntity.cpp">
       <Filter>Projectile\Player Projectile</Filter>
@@ -216,11 +222,11 @@
     <ClCompile Include="Source\Projectile\ProjectileBase.cpp">
       <Filter>Projectile\Projectile Base</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Weapon\WeaponBase.cpp">
-      <Filter>Weapon\Weapon Base</Filter>
+    <ClCompile Include="Source\SP4\ScenePlayerEntityTest.cpp">
+      <Filter>SP4\PlayerEntityTestScene</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Weapon\PlayerRangeWeapon.cpp">
-      <Filter>Weapon\Player Weapon</Filter>
+    <ClCompile Include="Source\PlayerInfo\PlayerRangeEntity.cpp">
+      <Filter>PlayerInfo\PlayerEntity\Ranged Entity</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -338,8 +344,11 @@
     <ClInclude Include="Source\PlayerInfo\PlayerEntityBase.h">
       <Filter>PlayerInfo\PlayerEntityBase</Filter>
     </ClInclude>
-    <ClInclude Include="Source\SP4\ScenePlayerEntityTest.h">
-      <Filter>SP4\PlayerEntityTestScene</Filter>
+    <ClInclude Include="Source\Weapon\PlayerRangeWeapon.h">
+      <Filter>Weapon\Player Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Weapon\WeaponBase.h">
+      <Filter>Weapon\Weapon Base</Filter>
     </ClInclude>
     <ClInclude Include="Source\Projectile\PlayerProjectileEntity.h">
       <Filter>Projectile\Player Projectile</Filter>
@@ -350,11 +359,11 @@
     <ClInclude Include="Source\Projectile\ProjectileBase.h">
       <Filter>Projectile\Projectile Base</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Weapon\WeaponBase.h">
-      <Filter>Weapon\Weapon Base</Filter>
+    <ClInclude Include="Source\SP4\ScenePlayerEntityTest.h">
+      <Filter>SP4\PlayerEntityTestScene</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Weapon\PlayerRangeWeapon.h">
-      <Filter>Weapon\Player Weapon</Filter>
+    <ClInclude Include="Source\PlayerInfo\PlayerRangeEntity.h">
+      <Filter>PlayerInfo\PlayerEntity\Ranged Entity</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -9,7 +9,9 @@
 PlayerEntityBase::PlayerEntityBase(Mesh* _modelMesh) :
 NetworkEntity(_modelMesh),
 moveSpeed(0),
-moveDirection(Vector3(0, 0, 0))
+moveDirection(Vector3(0, 0, 0)),
+shootDirection(Vector3(0, 0, 0)),
+weapon(NULL)
 {
 }
 
@@ -41,7 +43,7 @@ void PlayerEntityBase::Update(double dt)
 {
     if (moveDirection.IsZero())
     {
-        this->velocity.Lerp(0, dt * 5);
+        this->velocity.Lerp(0, dt * 10);
     }
     else
     {

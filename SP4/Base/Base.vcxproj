@@ -27,6 +27,10 @@
     <ClCompile Include="Source\Physics\Physics.cpp" />
     <ClCompile Include="Source\PlayerInfo\PlayerEntityBase.cpp" />
     <ClCompile Include="Source\PlayerInfo\PlayerInfo.cpp" />
+    <ClCompile Include="Source\PlayerInfo\PlayerRangeEntity.cpp" />
+    <ClCompile Include="Source\Projectile\EnemyProjectileEntity.cpp" />
+    <ClCompile Include="Source\Projectile\PlayerProjectileEntity.cpp" />
+    <ClCompile Include="Source\Projectile\ProjectileBase.cpp" />
     <ClCompile Include="Source\RakNet\Client.cpp" />
     <ClCompile Include="Source\RakNet\NetworkEntity.cpp" />
     <ClCompile Include="Source\RakNet\NetworkEntityManager.cpp" />
@@ -43,11 +47,14 @@
     <ClCompile Include="Source\SceneText2.cpp" />
     <ClCompile Include="Source\SkyBox\SkyBoxEntity.cpp" />
     <ClCompile Include="Source\SoundManager.cpp" />
+    <ClCompile Include="Source\SP4\ScenePlayerEntityTest.cpp" />
     <ClCompile Include="Source\SP4\SceneTest.cpp" />
     <ClCompile Include="Source\SpriteEntity.cpp" />
     <ClCompile Include="Source\TextEntity.cpp" />
     <ClCompile Include="Source\Waypoint\Waypoint.cpp" />
     <ClCompile Include="Source\Waypoint\WaypointManager.cpp" />
+    <ClCompile Include="Source\Weapon\PlayerRangeWeapon.cpp" />
+    <ClCompile Include="Source\Weapon\WeaponBase.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Button.h" />
@@ -58,6 +65,10 @@
     <ClInclude Include="Source\Lua\LuaInterface.h" />
     <ClInclude Include="Source\Physics\Physics.h" />
     <ClInclude Include="Source\PlayerInfo\PlayerEntityBase.h" />
+    <ClInclude Include="Source\PlayerInfo\PlayerRangeEntity.h" />
+    <ClInclude Include="Source\Projectile\EnemyProjectileEntity.h" />
+    <ClInclude Include="Source\Projectile\PlayerProjectileEntity.h" />
+    <ClInclude Include="Source\Projectile\ProjectileBase.h" />
     <ClInclude Include="Source\RakNet\Client.h" />
     <ClInclude Include="Source\RakNet\config.h" />
     <ClInclude Include="Source\RakNet\NetworkEntity.h" />
@@ -83,11 +94,14 @@
     <ClInclude Include="Source\SceneText2.h" />
     <ClInclude Include="Source\SkyBox\SkyBoxEntity.h" />
     <ClInclude Include="Source\SoundManager.h" />
+    <ClInclude Include="Source\SP4\ScenePlayerEntityTest.h" />
     <ClInclude Include="Source\SP4\SceneTest.h" />
     <ClInclude Include="Source\SpriteEntity.h" />
     <ClInclude Include="Source\TextEntity.h" />
     <ClInclude Include="Source\Waypoint\Waypoint.h" />
     <ClInclude Include="Source\Waypoint\WaypointManager.h" />
+    <ClInclude Include="Source\Weapon\PlayerRangeWeapon.h" />
+    <ClInclude Include="Source\Weapon\WeaponBase.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{9B172635-4E2B-46F1-A403-08F4194D00F5}</ProjectGuid>

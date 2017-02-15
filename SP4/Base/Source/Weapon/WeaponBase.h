@@ -23,7 +23,7 @@ public:
     inline float GetFireRate(void){ return this->fireRate; };
 
     virtual void Update(double dt);
-    virtual void Discharge(){};
+	virtual void Discharge(Vector3 Direction){};
 
 protected:
     WeaponBase();

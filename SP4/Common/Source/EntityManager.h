@@ -3,11 +3,13 @@
 
 #include <list>
 #include "Vector3.h"
+#include "SingletonTemplate.h"
 
 class EntityBase;
 
-class EntityManager
+class EntityManager : public Singleton<EntityManager>
 {
+	friend Singleton<EntityManager>;
 public:
 	EntityManager();
 	virtual ~EntityManager();

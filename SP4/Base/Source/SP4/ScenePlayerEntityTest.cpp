@@ -48,7 +48,7 @@ void ScenePlayerEntityTest::Init()
 	testy2 = Create::Entity(entityManager, "circle", Vector3(halfWorldWidth * 1.2f, halfWorldheight*1.01, 0));
 	testy2->SetVelocity(Vector3(-5, 0, 0));
 
-    playerEntity = Create::PlayerEntity(entityManager, "circle", 10, 20, Vector3(halfWorldWidth, halfWorldheight, 0));
+    playerEntity = Create::PlayerEntity(entityManager, "circle", 7, 15, Vector3(halfWorldWidth, halfWorldheight, 0));
 }
 
 void ScenePlayerEntityTest::UpdateInputs(double dt)
