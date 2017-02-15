@@ -210,6 +210,21 @@
     <ClCompile Include="Source\SP4\SceneScrolling.cpp">
       <Filter>SP4\SceneScrolling</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Projectile\EnemyProjectileEntity.cpp">
+      <Filter>Projectile\Enemy Projectile</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Projectile\PlayerProjectileEntity.cpp">
+      <Filter>Projectile\Player Projectile</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Projectile\ProjectileBase.cpp">
+      <Filter>Projectile\Projectile Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Weapon\PlayerRangeWeapon.cpp">
+      <Filter>Weapon\Player Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Weapon\WeaponBase.cpp">
+      <Filter>Weapon\Weapon Base</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Application.h">
@@ -328,6 +343,21 @@
     </ClInclude>
     <ClInclude Include="Source\SP4\SceneScrolling.h">
       <Filter>SP4\SceneScrolling</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Projectile\EnemyProjectileEntity.h">
+      <Filter>Projectile\Enemy Projectile</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Projectile\PlayerProjectileEntity.h">
+      <Filter>Projectile\Player Projectile</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Projectile\ProjectileBase.h">
+      <Filter>Projectile\Projectile Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Weapon\PlayerRangeWeapon.h">
+      <Filter>Weapon\Player Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Weapon\WeaponBase.h">
+      <Filter>Weapon\Weapon Base</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
