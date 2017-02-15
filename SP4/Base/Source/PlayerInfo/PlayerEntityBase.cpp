@@ -41,7 +41,7 @@ void PlayerEntityBase::Update(double dt)
 {
     if (moveDirection.IsZero())
     {
-        this->velocity.Lerp(0, dt);
+        this->velocity.Lerp(0, dt * 5);
     }
     else
     {

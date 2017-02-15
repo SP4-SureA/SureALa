@@ -13,7 +13,7 @@ enum COLLIDER_TYPE
 {
     COLLIDER_NONE = 0,
     COLLIDER_BOX,
-    COLLDER_SPHERE,
+    COLLIDER_SPHERE,
 
     NUM_COLLIDER_TYPE,
 };
@@ -33,6 +33,9 @@ public:
 
     inline void SetMaxSpeed(const float _value){ this->maxSpeed = _value; };
     inline float GetMaxSpeed(){ return this->maxSpeed; };
+
+    inline void SetColliderType(const COLLIDER_TYPE _type){ this->collider_Type = _type; };
+    inline COLLIDER_TYPE GetColliderType(){ return this->collider_Type; };
 
     void ClampSpeed();
 
