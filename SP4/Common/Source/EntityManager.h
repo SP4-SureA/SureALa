@@ -1,13 +1,16 @@
 #ifndef ENTITY_MANAGER_H
 #define ENTITY_MANAGER_H
 
+#include "SingletonTemplate.h"
+
 #include <list>
 #include "Vector3.h"
 
 class EntityBase;
 
-class EntityManager
+class EntityManager : public Singleton<EntityManager>
 {
+	friend Singleton<EntityManager>;
 public:
 	EntityManager();
 	virtual ~EntityManager();

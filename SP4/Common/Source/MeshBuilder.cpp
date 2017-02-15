@@ -691,7 +691,7 @@ Mesh* MeshBuilder::GenerateText(const std::string &meshName, unsigned numRow, un
 	return mesh;
 }
 
-Mesh* MeshBuilder::GenerateSprite(const std::string &meshName, unsigned numRow, unsigned numCol)
+Mesh* MeshBuilder::GenerateSprite(const std::string &meshName, unsigned numRow, unsigned numCol, float length)
 {
 	Vertex v;
 	std::vector<Vertex> vertex_buffer_data;
@@ -706,19 +706,19 @@ Mesh* MeshBuilder::GenerateSprite(const std::string &meshName, unsigned numRow, 
 		{
 			float u1 = j * width;
 			float v1 = 1.f - height - i * height;
-			v.pos.Set(-0.5f, -0.5f, 0);
+			v.pos.Set(-0.5f * length, -0.5f * length, 0);
 			v.texCoord.Set(u1, v1);
 			vertex_buffer_data.push_back(v);
 
-			v.pos.Set(0.5f, -0.5f, 0);
+			v.pos.Set(0.5f * length, -0.5f * length, 0);
 			v.texCoord.Set(u1 + width, v1);
 			vertex_buffer_data.push_back(v);
 
-			v.pos.Set(0.5f, 0.5f, 0);
+			v.pos.Set(0.5f * length, 0.5f * length, 0);
 			v.texCoord.Set(u1 + width, v1 + height);
 			vertex_buffer_data.push_back(v);
 
-			v.pos.Set(-0.5f, 0.5f, 0);
+			v.pos.Set(-0.5f * length, 0.5f * length, 0);
 			v.texCoord.Set(u1, v1 + height);
 			vertex_buffer_data.push_back(v);
 

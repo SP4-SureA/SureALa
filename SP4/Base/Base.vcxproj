@@ -30,7 +30,6 @@
     <ClCompile Include="Source\RakNet\Client.cpp" />
     <ClCompile Include="Source\RakNet\NetworkEntity.cpp" />
     <ClCompile Include="Source\RakNet\NetworkEntityManager.cpp" />
-    <ClCompile Include="Source\RakNet\Server.cpp" />
     <ClCompile Include="Source\SceneBase2D.cpp" />
     <ClCompile Include="Source\SceneBase3D.cpp" />
     <ClCompile Include="Source\SceneGraph\Grid.cpp" />
@@ -43,6 +42,8 @@
     <ClCompile Include="Source\SceneText2.cpp" />
     <ClCompile Include="Source\SkyBox\SkyBoxEntity.cpp" />
     <ClCompile Include="Source\SoundManager.cpp" />
+    <ClCompile Include="Source\SP4\ScenePlayerEntityTest.cpp" />
+    <ClCompile Include="Source\SP4\SceneScrolling.cpp" />
     <ClCompile Include="Source\SP4\SceneTest.cpp" />
     <ClCompile Include="Source\SpriteEntity.cpp" />
     <ClCompile Include="Source\TextEntity.cpp" />
@@ -63,7 +64,6 @@
     <ClInclude Include="Source\RakNet\NetworkEntity.h" />
     <ClInclude Include="Source\RakNet\MyMsgIDs.h" />
     <ClInclude Include="Source\RakNet\NetworkEntityManager.h" />
-    <ClInclude Include="Source\RakNet\Server.h" />
     <ClInclude Include="Source\SceneGraph\Grid.h" />
     <ClInclude Include="Source\SceneGraph\SceneGraph.h" />
     <ClInclude Include="Source\SceneGraph\SceneNode.h" />
@@ -83,6 +83,8 @@
     <ClInclude Include="Source\SceneText2.h" />
     <ClInclude Include="Source\SkyBox\SkyBoxEntity.h" />
     <ClInclude Include="Source\SoundManager.h" />
+    <ClInclude Include="Source\SP4\ScenePlayerEntityTest.h" />
+    <ClInclude Include="Source\SP4\SceneScrolling.h" />
     <ClInclude Include="Source\SP4\SceneTest.h" />
     <ClInclude Include="Source\SpriteEntity.h" />
     <ClInclude Include="Source\TextEntity.h" />

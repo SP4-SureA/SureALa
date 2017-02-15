@@ -4,6 +4,8 @@
 #include "Vector3.h"
 #include "../RakNet/NetworkEntity.h"
 
+#include "Animation.h"
+
 // Forward declaration
 namespace RakNet
 {
@@ -16,8 +18,11 @@ public:
     PlayerEntityBase(Mesh* _modelMesh);
     virtual ~PlayerEntityBase();
 
+	void UpdateSprite();
+
     virtual void UpdateInputs(double dt);
     virtual void Update(double dt);
+	virtual void HandleOutOfBounds(Vector3 min, Vector3 max, double dt);
     virtual void Render();
 
 	virtual void Read(RakNet::BitStream &bs);
@@ -33,6 +38,7 @@ public:
     inline void SetMoveSpeed(const float& _value){ this->moveSpeed = _value; };
     inline float GetMoveSpeed(void){ return this->moveSpeed; };
 
+	AnimationPlayer animationPlayer;
 protected:
     float moveSpeed;
     Vector3 moveDirection;

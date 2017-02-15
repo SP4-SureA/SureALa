@@ -21,6 +21,7 @@
 #include "GameStateManagement\MenuState.h"
 #include "GameStateManagement\PauseState.h"
 #include "SP4\SceneTest.h"
+#include "SP4\SceneScrolling.h"
 
 GLFWwindow* m_window;
 const unsigned char FPS = 60; // FPS of this game
@@ -43,6 +44,8 @@ static void key_callback(GLFWwindow* window, int key, int scancode, int action, 
 void resize_callback(GLFWwindow* window, int w, int h)
 {
 	glViewport(0, 0, w, h);
+	Application::GetInstance().m_window_width = w;
+	Application::GetInstance().m_window_height = h;
 }
 
 bool Application::IsKeyPressed(unsigned short key)
@@ -190,6 +193,7 @@ void Application::Init()
 	SceneManager::GetInstance()->AddScene("MenuState", new MenuState());
 	SceneManager::GetInstance()->AddScene("PauseState", new PauseState());
 	SceneManager::GetInstance()->AddScene("SceneTest", new SceneTest());
+	SceneManager::GetInstance()->AddScene("SceneScrolling", new SceneScrolling());
 
 	SceneManager::GetInstance()->SetActiveScene("MenuState");
 }

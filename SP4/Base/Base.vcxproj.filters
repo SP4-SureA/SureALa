@@ -91,6 +91,9 @@
     <Filter Include="Weapon\Player Weapon">
       <UniqueIdentifier>{2d195fac-abfe-4073-9836-fb1fb8c7a279}</UniqueIdentifier>
     </Filter>
+    <Filter Include="SP4\SceneScrolling">
+      <UniqueIdentifier>{99601a55-0a0b-4e89-8966-a513602f4d2b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Application.cpp">
@@ -186,9 +189,6 @@
     <ClCompile Include="Source\RakNet\Client.cpp">
       <Filter>RakNet</Filter>
     </ClCompile>
-    <ClCompile Include="Source\RakNet\Server.cpp">
-      <Filter>RakNet</Filter>
-    </ClCompile>
     <ClCompile Include="Source\SP4\SceneTest.cpp">
       <Filter>SP4\Tests</Filter>
     </ClCompile>
@@ -207,20 +207,8 @@
     <ClCompile Include="Source\SP4\ScenePlayerEntityTest.cpp">
       <Filter>SP4\PlayerEntityTestScene</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Projectile\PlayerProjectileEntity.cpp">
-      <Filter>Projectile\Player Projectile</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Projectile\EnemyProjectileEntity.cpp">
-      <Filter>Projectile\Enemy Projectile</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Projectile\ProjectileBase.cpp">
-      <Filter>Projectile\Projectile Base</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Weapon\WeaponBase.cpp">
-      <Filter>Weapon\Weapon Base</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Weapon\PlayerRangeWeapon.cpp">
-      <Filter>Weapon\Player Weapon</Filter>
+    <ClCompile Include="Source\SP4\SceneScrolling.cpp">
+      <Filter>SP4\SceneScrolling</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -320,9 +308,6 @@
     <ClInclude Include="Source\RakNet\MyMsgIDs.h">
       <Filter>RakNet</Filter>
     </ClInclude>
-    <ClInclude Include="Source\RakNet\Server.h">
-      <Filter>RakNet</Filter>
-    </ClInclude>
     <ClInclude Include="Source\SP4\SceneTest.h">
       <Filter>SP4\Tests</Filter>
     </ClInclude>
@@ -341,20 +326,8 @@
     <ClInclude Include="Source\SP4\ScenePlayerEntityTest.h">
       <Filter>SP4\PlayerEntityTestScene</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Projectile\PlayerProjectileEntity.h">
-      <Filter>Projectile\Player Projectile</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Projectile\EnemyProjectileEntity.h">
-      <Filter>Projectile\Enemy Projectile</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Projectile\ProjectileBase.h">
-      <Filter>Projectile\Projectile Base</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Weapon\WeaponBase.h">
-      <Filter>Weapon\Weapon Base</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Weapon\PlayerRangeWeapon.h">
-      <Filter>Weapon\Player Weapon</Filter>
+    <ClInclude Include="Source\SP4\SceneScrolling.h">
+      <Filter>SP4\SceneScrolling</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

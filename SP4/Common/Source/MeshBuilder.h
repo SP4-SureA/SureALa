@@ -30,7 +30,7 @@ public:
 	Mesh* GenerateCone(const std::string &meshName, Color color, unsigned numSlice, float radius, float height);
 	Mesh* GenerateOBJ(const std::string &meshName, const std::string &file_path);
 	Mesh* GenerateText(const std::string &meshName, unsigned row, unsigned col);
-	Mesh* GenerateSprite(const std::string &meshName, unsigned row, unsigned col);
+	Mesh* GenerateSprite(const std::string &meshName, unsigned row, unsigned col, float length = 1.0f);
 	Mesh* GenerateSkyPlane(const std::string &meshName, Color color, int slices,float PlanetRadius, float AtmosphereRadius, float hTile, float vTile);
 
 	Mesh* GetMesh(const std::string& _meshName);
