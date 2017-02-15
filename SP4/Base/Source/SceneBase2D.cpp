@@ -61,23 +61,6 @@ void SceneBase2D::Init()
 
 	GraphicsManager::GetInstance()->AttachCamera(&camera);
 
-	// Load all the meshes
-	MeshBuilder::GetInstance()->GenerateAxes("axis");
-	MeshBuilder::GetInstance()->GenerateCrossHair("crosshair");
-	MeshBuilder::GetInstance()->GenerateQuad("quad", Color(1, 1, 1), 1.f);
-	MeshBuilder::GetInstance()->GenerateCircle("circle", Color(1, 0, 1), 36, 1);
-	MeshBuilder::GetInstance()->GetMesh("quad")->textureID = LoadTGA("Image//calibri.tga");
-	MeshBuilder::GetInstance()->GenerateText("text", 16, 16);
-	MeshBuilder::GetInstance()->GetMesh("text")->textureID = LoadTGA("Image//calibri.tga");
-	MeshBuilder::GetInstance()->GetMesh("text")->material.kAmbient.Set(1, 0, 0);
-	MeshBuilder::GetInstance()->GenerateRing("ring", Color(1, 0, 1), 36, 1, 0.5f);
-	MeshBuilder::GetInstance()->GenerateSphere("lightball", Color(1, 1, 1), 18, 36, 1.f);
-	MeshBuilder::GetInstance()->GenerateSphere("sphere", Color(1, 0, 0), 18, 36, 1.f);
-	MeshBuilder::GetInstance()->GenerateCone("cone", Color(0.5f, 1, 0.3f), 36, 10.f, 10.f);
-	MeshBuilder::GetInstance()->GenerateCube("cube", Color(1.0f, 1.0f, 0.0f), 1.0f);
-	MeshBuilder::GetInstance()->GetMesh("cone")->material.kDiffuse.Set(0.99f, 0.99f, 0.99f);
-	MeshBuilder::GetInstance()->GetMesh("cone")->material.kSpecular.Set(0.f, 0.f, 0.f);
-
 	orthoHeight = 100;
 	orthoWidth = orthoHeight * ((float)Application::GetInstance().GetWindowWidth() / Application::GetInstance().GetWindowHeight());
 	worldHeight = 100;

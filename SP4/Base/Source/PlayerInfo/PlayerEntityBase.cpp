@@ -61,9 +61,14 @@ void PlayerEntityBase::Read(RakNet::BitStream &bs){}
 
 void PlayerEntityBase::Write(RakNet::BitStream &bs){}
 
-void PlayerEntityBase::ReadInit(RakNet::BitStream &bs){}
+void PlayerEntityBase::ReadInit(RakNet::BitStream &bs)
+{
 
-void PlayerEntityBase::WriteInit(RakNet::BitStream &bs){}
+}
+
+void PlayerEntityBase::WriteInit(RakNet::BitStream &bs)
+{
+}
 
 PlayerEntityBase* Create::PlayerEntity(EntityManager* em,
     const std::string& _meshName,
@@ -75,7 +80,7 @@ PlayerEntityBase* Create::PlayerEntity(EntityManager* em,
 {
     if (em == NULL)
         return NULL;
-
+	
     Mesh* modelMesh = MeshBuilder::GetInstance()->GetMesh(_meshName);
 
     if (modelMesh == nullptr)

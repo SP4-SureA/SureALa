@@ -6,10 +6,10 @@
 Mesh::Mesh(const std::string &meshName)
 	: name(meshName)
 	, mode(DRAW_TRIANGLES)
+	, textureID(0)
 {
 	glGenBuffers(1, &vertexBuffer);
 	glGenBuffers(1, &indexBuffer);
-	textureID = 0;
 }
 
 Mesh::~Mesh()

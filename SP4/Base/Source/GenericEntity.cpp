@@ -18,6 +18,7 @@ GenericEntity::~GenericEntity()
 
 void GenericEntity::Update(double dt)
 {
+	position += velocity * dt;
 }
 
 void GenericEntity::UpdateInputs(double dt)

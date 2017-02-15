@@ -42,6 +42,7 @@ public:
 	virtual void DoInterpolation();
 
 protected:
+	bool handleUpdate;
 	unsigned int ID;
 
 	float oldx, oldy;	// for reset back to previous location if collision detected

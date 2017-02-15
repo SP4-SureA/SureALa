@@ -17,7 +17,8 @@ void EntityManager::Update(double dt)
 	end = entityList.end();
 	for (it = entityList.begin(); it != end; ++it)
 	{
-		(*it)->Update(dt);
+		if ((*it)->GetShouldUpdate())
+			(*it)->Update(dt);
 	}
 	//SceneGraph::GetInstance()->Update();
 	//if (spatialPartition)

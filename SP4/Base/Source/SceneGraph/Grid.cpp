@@ -200,10 +200,6 @@ void Grid::SetDetailLevel(const LevelOfDetails::DETAIL_LEVEL detailLevel)
 	while (it != ListOfObjects.end())
 	{
 		GenericEntity* entity = (GenericEntity*)(*it);
-		if (entity->GetLODStatus() == true)
-		{
-			entity->SetDetailLevel(detailLevel);
-		}
 		++it;
 	}
 }

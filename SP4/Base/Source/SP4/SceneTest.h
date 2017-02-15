@@ -3,6 +3,7 @@
 
 #include "..\SceneBase2D.h"
 #include "..\GenericEntity.h"
+
 class SceneTest : public SceneBase2D
 {
 public:
@@ -16,7 +17,6 @@ public:
 	virtual void Exit();
 
 protected:
-	GenericEntity* testy;
 };
 
 #endif

@@ -3,9 +3,9 @@
 
 #include "SingletonTemplate.h"
 
-class EntityBase;
+class PlayerEntityBase;
 
-class PlayerInfo : Singleton<PlayerInfo>
+class PlayerInfo : public Singleton<PlayerInfo>
 {
 	friend Singleton<PlayerInfo>;
 public:
@@ -14,13 +14,13 @@ public:
 	virtual void UpdateInputs(double dt){}
 	virtual void Update(double dt){}
 
-	inline void SetCharacter(EntityBase* _eb){ this->character = _eb; }
-	inline EntityBase* GetCharacter(){ return this->character; }
+	inline void SetCharacter(PlayerEntityBase* _eb){ this->character = _eb; }
+	inline PlayerEntityBase* GetCharacter(){ return this->character; }
 
 protected:
 	PlayerInfo();
 
-	EntityBase* character;
+	PlayerEntityBase* character;
 };
 
 #endif

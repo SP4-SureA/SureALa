@@ -36,6 +36,9 @@ public:
     inline void SetShouldRender(const bool _bool){ this->b_DoRender = _bool; };
     inline bool GetShouldRender(void){ return this->b_DoRender; };
 
+	inline void SetShouldUpdate(const bool _bool){ this->b_DoUpdate = _bool; };
+	inline bool GetShouldUpdate(void){ return this->b_DoUpdate; };
+
 	// Check if this entity has a collider class parent
 	inline void SetHasCollider(const bool _bool){ this->b_HasCollider = _bool; };
 	inline bool GetHasCollider(void){ return this->b_HasCollider; };
@@ -48,6 +51,7 @@ protected:
 	bool b_IsDone;
 	bool b_IsDead;
 	bool b_HasCollider;
+	bool b_DoUpdate;
     bool b_DoRender;
 };
 

@@ -1,7 +1,8 @@
 #include "PlayerInfo.h"
 
-PlayerInfo::PlayerInfo() :
-character(nullptr)
+#include "PlayerEntityBase.h"
+
+PlayerInfo::PlayerInfo()
 {
 }
 
