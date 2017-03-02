@@ -2,8 +2,9 @@
 #define _ENTITY_BASE_H
 
 #include "Vector3.h"
+#include "Collider.h"
 
-class EntityBase
+class EntityBase : public Collider
 {
 public:
 	EntityBase();
@@ -25,9 +26,15 @@ public:
     inline void AddVelocity(const Vector3& _value){ this->velocity += _value; };
 	inline Vector3 GetVelocity(){ return this->velocity; };
 
+	inline void SetFront(const Vector3& _value){ this->front = _value; };
+	inline Vector3 GetFront(){ return this->front; };
+
 	inline void SetScale(const Vector3& _value){ this->scale = _value; };
 	inline Vector3 GetScale(){ return this->scale; };
 
+	inline void SetWeight(float weight){ this->weight = weight; }
+	inline float GetWeight(){ return this->weight; }
+	
     inline void SetIsDone(const bool _bool){ this->b_IsDone = _bool; };
 	inline bool GetIsDone(void){ return this->b_IsDone; };
 
@@ -40,18 +47,15 @@ public:
 	inline void SetShouldUpdate(const bool _bool){ this->b_DoUpdate = _bool; };
 	inline bool GetShouldUpdate(void){ return this->b_DoUpdate; };
 
-	// Check if this entity has a collider class parent
-	inline void SetHasCollider(const bool _bool){ this->b_HasCollider = _bool; };
-	inline bool GetHasCollider(void){ return this->b_HasCollider; };
-
 protected:
 	Vector3 position;
 	Vector3 velocity;
+	Vector3 front;
 	Vector3 scale;
+	float weight;
 	
 	bool b_IsDone;
 	bool b_IsDead;
-	bool b_HasCollider;
 	bool b_DoUpdate;
     bool b_DoRender;
 };

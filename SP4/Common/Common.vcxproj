@@ -14,7 +14,7 @@
     <ClCompile Include="Source\Animation.cpp" />
     <ClCompile Include="Source\AnimationManager.cpp" />
     <ClCompile Include="Source\CameraBase.cpp" />
-    <ClCompile Include="Source\Collider\Collider.cpp" />
+    <ClCompile Include="Source\Collider.cpp" />
     <ClCompile Include="Source\EntityBase.cpp" />
     <ClCompile Include="Source\EntityManager.cpp" />
     <ClCompile Include="Source\GraphicsManager.cpp" />
@@ -41,7 +41,7 @@
     <ClInclude Include="Source\Animation.h" />
     <ClInclude Include="Source\AnimationManager.h" />
     <ClInclude Include="Source\CameraBase.h" />
-    <ClInclude Include="Source\Collider\Collider.h" />
+    <ClInclude Include="Source\Collider.h" />
     <ClInclude Include="Source\EntityBase.h" />
     <ClInclude Include="Source\EntityManager.h" />
     <ClInclude Include="Source\GraphicsManager.h" />

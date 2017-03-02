@@ -49,29 +49,14 @@
     <Filter Include="Waypoint">
       <UniqueIdentifier>{0ac91c2d-a5fa-4c9d-814d-fea563cad847}</UniqueIdentifier>
     </Filter>
-    <Filter Include="RakNet">
-      <UniqueIdentifier>{243f741e-33c7-4718-86c3-4f8933658345}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="SP4">
-      <UniqueIdentifier>{5662ee94-eb54-4fc5-8037-f31ad8f3dc26}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="SP4\Tests">
-      <UniqueIdentifier>{50d40e64-5131-4cf1-a294-00830a6cdd4a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Physics">
       <UniqueIdentifier>{ef7be108-f127-4a40-9ec3-dfb3c58750e5}</UniqueIdentifier>
     </Filter>
     <Filter Include="PlayerInfo\PlayerEntityBase">
       <UniqueIdentifier>{9668061e-a0d3-4680-a7bd-57243a391fc5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="SP4\PlayerEntityTestScene">
-      <UniqueIdentifier>{c9912ffa-cffb-47cf-a573-47ced293eb7d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="PlayerInfo\PlayerEntity">
       <UniqueIdentifier>{e878ddb0-36ed-4391-adea-8fc8c5c05323}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Weapon">
-      <UniqueIdentifier>{b0a4e1cd-254e-4c77-94e2-95cf6f4bb5d6}</UniqueIdentifier>
     </Filter>
     <Filter Include="Projectile">
       <UniqueIdentifier>{257856bc-e1f9-4f9e-99f3-1a901863a8ad}</UniqueIdentifier>
@@ -85,14 +70,98 @@
     <Filter Include="Projectile\Projectile Base">
       <UniqueIdentifier>{a6c339f4-e618-429e-b671-1a5b4c224ca3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="CloudEntity">
+      <UniqueIdentifier>{25607684-ac9d-499b-bc09-6f4c0da3ac32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CloudEntity\Cloud Factory">
+      <UniqueIdentifier>{28bcc5d0-dc0b-4756-aec0-764ddd1574b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Enemy\EnemyBase">
+      <UniqueIdentifier>{1c4183eb-5692-4be4-a34a-9351029070e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FloorTiles">
+      <UniqueIdentifier>{969ba300-25be-40c5-a6f0-bc6abfceb036}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="State">
+      <UniqueIdentifier>{9f68fe52-b9b0-40e4-8b90-e8e3cd4f9aaa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Enemy\Flappy">
+      <UniqueIdentifier>{050a8cfc-b9e2-42d4-a2f6-6e3c90a6d6ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Enemy\Floopy">
+      <UniqueIdentifier>{b7fd0581-8283-46a6-8bad-3a6aa9522c92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Enemy\Bitey">
+      <UniqueIdentifier>{6cdd081f-e9ed-4c02-b074-644d0e1f6375}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Boss">
+      <UniqueIdentifier>{ae8feec4-6f9a-4815-8b18-f16f041129e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Boss\BossBase">
+      <UniqueIdentifier>{b7f1b8a9-7021-421b-ba15-195e04784187}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Boss\Skywhale">
+      <UniqueIdentifier>{4e3f6515-b3f2-4606-a8d8-7cbd4ff6af92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Boss\Skywhale\Phase1">
+      <UniqueIdentifier>{b37c4c0e-11a0-4af9-87fc-b139ce4572b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Boss\Skywhale\Phase2">
+      <UniqueIdentifier>{f6963410-262e-40c7-9022-53c62196035b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Projectile\Boss Projectile">
+      <UniqueIdentifier>{e508782b-2e0a-49a1-8993-cbd16ea5db98}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Particle">
+      <UniqueIdentifier>{10272e92-0a2f-476c-ab25-48787c67ecfc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Particle\ParticleScale">
+      <UniqueIdentifier>{efb14ed3-49fc-46f7-8356-2f70983c9beb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Weapon">
+      <UniqueIdentifier>{b0a4e1cd-254e-4c77-94e2-95cf6f4bb5d6}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Weapon\Weapon Base">
       <UniqueIdentifier>{e1dc0c16-7313-42eb-b252-47ba90ff282d}</UniqueIdentifier>
     </Filter>
     <Filter Include="Weapon\Player Weapon">
       <UniqueIdentifier>{2d195fac-abfe-4073-9836-fb1fb8c7a279}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Weapon\Player Weapon\Range player">
+      <UniqueIdentifier>{8033ded6-0667-43f0-9ec6-f5d27cee643b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Weapon\Player Weapon\Melee player">
+      <UniqueIdentifier>{a129770b-2df3-4aea-8584-c7b2c1459a95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Weapon\Enemy Weapon">
+      <UniqueIdentifier>{7c185c71-0a1c-43d4-a446-49cb40c825e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Weapon\Boss Weapon">
+      <UniqueIdentifier>{86a8341c-3ed7-4c19-bb7e-3d93bc278f97}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SP4">
+      <UniqueIdentifier>{5662ee94-eb54-4fc5-8037-f31ad8f3dc26}</UniqueIdentifier>
+    </Filter>
     <Filter Include="SP4\SceneScrolling">
       <UniqueIdentifier>{99601a55-0a0b-4e89-8966-a513602f4d2b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SP4\SceneBoss">
+      <UniqueIdentifier>{0195f1c9-7bf1-4466-8d7a-bd44d97c205c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SP4\SceneBoss2">
+      <UniqueIdentifier>{e187c645-8208-48a6-a17e-39457a7b7091}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SP4\Healh Bar Renderer">
+      <UniqueIdentifier>{fb0aafb5-5e2d-4db1-9ec5-062b06e4691e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SP4\Environtmental Object">
+      <UniqueIdentifier>{613eae2b-9d62-4887-9c55-fa83ce3f76b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SP4\Scene Endless">
+      <UniqueIdentifier>{bf025930-f3bb-4275-bd76-8f6722cc730e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SP4\SceneTutorial">
+      <UniqueIdentifier>{90a863db-3179-41a5-9343-84dc304f5f83}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -177,35 +246,14 @@
     <ClCompile Include="Source\GameStateManagement\PauseState.cpp">
       <Filter>GameStateManagement</Filter>
     </ClCompile>
-    <ClCompile Include="Source\GameStateManagement\MenuState.cpp">
-      <Filter>GameStateManagement</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Button.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\RakNet\Client.cpp">
-      <Filter>RakNet</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\SP4\SceneTest.cpp">
-      <Filter>SP4\Tests</Filter>
     </ClCompile>
     <ClCompile Include="Source\Physics\Physics.cpp">
       <Filter>Physics</Filter>
     </ClCompile>
-    <ClCompile Include="Source\RakNet\NetworkEntity.cpp">
-      <Filter>RakNet</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\RakNet\NetworkEntityManager.cpp">
-      <Filter>RakNet</Filter>
-    </ClCompile>
     <ClCompile Include="Source\PlayerInfo\PlayerEntityBase.cpp">
       <Filter>PlayerInfo\PlayerEntityBase</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\SP4\ScenePlayerEntityTest.cpp">
-      <Filter>SP4\PlayerEntityTestScene</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\SP4\SceneScrolling.cpp">
-      <Filter>SP4\SceneScrolling</Filter>
     </ClCompile>
     <ClCompile Include="Source\Projectile\EnemyProjectileEntity.cpp">
       <Filter>Projectile\Enemy Projectile</Filter>
@@ -213,20 +261,161 @@
     <ClCompile Include="Source\Projectile\PlayerProjectileEntity.cpp">
       <Filter>Projectile\Player Projectile</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Projectile\ProjectileBase.cpp">
-      <Filter>Projectile\Projectile Base</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Enemy\EnemyBase.cpp">
-      <Filter>Enemy</Filter>
-    </ClCompile>
     <ClCompile Include="Source\PlayerInfo\PlayerRangeEntity.cpp">
       <Filter>PlayerInfo\PlayerEntity</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Weapon\PlayerRangeWeapon.cpp">
-      <Filter>Weapon\Player Weapon</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Weapon\WeaponBase.cpp">
       <Filter>Weapon\Weapon Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ParallaxScrollingEntity.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ScrollingEntity.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CloudEntity\CloudFactory.cpp">
+      <Filter>CloudEntity\Cloud Factory</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CloudEntity\CloudEntity.cpp">
+      <Filter>CloudEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Weapon\EnemyRangeWeapon.cpp">
+      <Filter>Weapon\Enemy Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameStateManagement\MenuState.cpp">
+      <Filter>GameStateManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameStateManagement\IntroState.cpp">
+      <Filter>GameStateManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Projectile\PlayerMeleeHitboxEntity.cpp">
+      <Filter>Projectile\Player Projectile</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\PlayerInfo\PlayerMeleeEntity.cpp">
+      <Filter>PlayerInfo\PlayerEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SP4\SceneScrolling.cpp">
+      <Filter>SP4\SceneScrolling</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Enemy\EnemyBase.cpp">
+      <Filter>Enemy\EnemyBase</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Weapon\PlayerMeleeWeapon.cpp">
+      <Filter>Weapon\Player Weapon\Melee player</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Weapon\PlayerShieldWeapon.cpp">
+      <Filter>Weapon\Player Weapon\Melee player</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Weapon\PlayerRangeWeapon.cpp">
+      <Filter>Weapon\Player Weapon\Range player</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Projectile\ProjectileBase.cpp">
+      <Filter>Projectile\Projectile Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Projectile\PlayerShieldEntity.cpp">
+      <Filter>Projectile\Player Projectile</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FloorTiles\FloorTile.cpp">
+      <Filter>FloorTiles</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FloorTiles\FloorTilesManager.cpp">
+      <Filter>FloorTiles</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SP4\GameInfo.cpp">
+      <Filter>SP4</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\State\State.cpp">
+      <Filter>State</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\State\StateManager.cpp">
+      <Filter>State</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SP4\SceneBoss.cpp">
+      <Filter>SP4\SceneBoss</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ScrollingCamera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Enemy\Flappy.cpp">
+      <Filter>Enemy\Flappy</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SP4\HealthUI.cpp">
+      <Filter>SP4</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Enemy\Floopy.cpp">
+      <Filter>Enemy\Floopy</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Enemy\Bitey.cpp">
+      <Filter>Enemy\Bitey</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Boss\Phase1\BossMinion.cpp">
+      <Filter>Boss\Skywhale\Phase1</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Boss\Phase1\GraveStoneEntity.cpp">
+      <Filter>Boss\Skywhale\Phase1</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Boss\Phase1\SkyWhalePhase1.cpp">
+      <Filter>Boss\Skywhale\Phase1</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Boss\Phase1\SpawnState.cpp">
+      <Filter>Boss\Skywhale\Phase1</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Boss\Phase2\AngryState.cpp">
+      <Filter>Boss\Skywhale\Phase2</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Boss\Phase2\SkyWhalePhase2.cpp">
+      <Filter>Boss\Skywhale\Phase2</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Boss\BossEntity.cpp">
+      <Filter>Boss\BossBase</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Boss\SkyWhale.cpp">
+      <Filter>Boss\Skywhale</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Weapon\BossLazerWeapon.cpp">
+      <Filter>Weapon\Boss Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Projectile\BossLazerBody.cpp">
+      <Filter>Projectile\Boss Projectile</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Projectile\BossLazerStart.cpp">
+      <Filter>Projectile\Boss Projectile</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Particle\ParticleBase.cpp">
+      <Filter>Particle</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Particle\ParticleScale.cpp">
+      <Filter>Particle\ParticleScale</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SP4\SceneBoss2.cpp">
+      <Filter>SP4\SceneBoss2</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Weapon\BossRapidFireWeapon.cpp">
+      <Filter>Weapon\Boss Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SP4\HealthBarRenderer.cpp">
+      <Filter>SP4\Healh Bar Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SP4\EnvironmentObject.cpp">
+      <Filter>SP4\Environtmental Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SP4\Wall.cpp">
+      <Filter>SP4</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameStateManagement\GameModeSelectionState.cpp">
+      <Filter>GameStateManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameStateManagement\VictoryState.cpp">
+      <Filter>GameStateManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SP4\SceneEndless.cpp">
+      <Filter>SP4\Scene Endless</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameStateManagement\SelectionState.cpp">
+      <Filter>GameStateManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SP4\SceneTutorial.cpp">
+      <Filter>SP4\SceneTutorial</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -314,35 +503,11 @@
     <ClInclude Include="Source\Button.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\RakNet\Client.h">
-      <Filter>RakNet</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\RakNet\config.h">
-      <Filter>RakNet</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\RakNet\MyMsgIDs.h">
-      <Filter>RakNet</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\SP4\SceneTest.h">
-      <Filter>SP4\Tests</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Physics\Physics.h">
       <Filter>Physics</Filter>
     </ClInclude>
-    <ClInclude Include="Source\RakNet\NetworkEntity.h">
-      <Filter>RakNet</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\RakNet\NetworkEntityManager.h">
-      <Filter>RakNet</Filter>
-    </ClInclude>
     <ClInclude Include="Source\PlayerInfo\PlayerEntityBase.h">
       <Filter>PlayerInfo\PlayerEntityBase</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\SP4\ScenePlayerEntityTest.h">
-      <Filter>SP4\PlayerEntityTestScene</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\SP4\SceneScrolling.h">
-      <Filter>SP4\SceneScrolling</Filter>
     </ClInclude>
     <ClInclude Include="Source\Projectile\EnemyProjectileEntity.h">
       <Filter>Projectile\Enemy Projectile</Filter>
@@ -350,20 +515,167 @@
     <ClInclude Include="Source\Projectile\PlayerProjectileEntity.h">
       <Filter>Projectile\Player Projectile</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Projectile\ProjectileBase.h">
-      <Filter>Projectile\Projectile Base</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Enemy\EnemyBase.h">
-      <Filter>Enemy</Filter>
-    </ClInclude>
     <ClInclude Include="Source\PlayerInfo\PlayerRangeEntity.h">
       <Filter>PlayerInfo\PlayerEntity</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Weapon\PlayerRangeWeapon.h">
-      <Filter>Weapon\Player Weapon</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Weapon\WeaponBase.h">
       <Filter>Weapon\Weapon Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ParallaxScrollingEntity.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ScrollingEntity.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CloudEntity\CloudFactory.h">
+      <Filter>CloudEntity\Cloud Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CloudEntity\CloudEntity.h">
+      <Filter>CloudEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Weapon\EnemyRangeWeapon.h">
+      <Filter>Weapon\Enemy Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\GameStateManagement\IntroState.h">
+      <Filter>GameStateManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Projectile\PlayerMeleeHitboxEntity.h">
+      <Filter>Projectile\Player Projectile</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\PlayerInfo\PlayerMeleeEntity.h">
+      <Filter>PlayerInfo\PlayerEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SP4\SceneScrolling.h">
+      <Filter>SP4\SceneScrolling</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Enemy\EnemyBase.h">
+      <Filter>Enemy\EnemyBase</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Weapon\PlayerMeleeWeapon.h">
+      <Filter>Weapon\Player Weapon\Melee player</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Weapon\PlayerShieldWeapon.h">
+      <Filter>Weapon\Player Weapon\Melee player</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Weapon\PlayerRangeWeapon.h">
+      <Filter>Weapon\Player Weapon\Range player</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Projectile\ProjectileBase.h">
+      <Filter>Projectile\Projectile Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Projectile\PlayerShieldEntity.h">
+      <Filter>Projectile\Player Projectile</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\FloorTiles\FloorTile.h">
+      <Filter>FloorTiles</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\FloorTiles\FloorTilesManager.h">
+      <Filter>FloorTiles</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SP4\GameInfo.h">
+      <Filter>SP4</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\State\State.h">
+      <Filter>State</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\State\StateManager.h">
+      <Filter>State</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SP4\SceneBoss.h">
+      <Filter>SP4\SceneBoss</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ScrollingCamera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Enemy\Flappy.h">
+      <Filter>Enemy\Flappy</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Enemy\EnemyBaseState_Patrol.h">
+      <Filter>Enemy\EnemyBase</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Enemy\EnemyBaseState_Attack.h">
+      <Filter>Enemy\EnemyBase</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SP4\HealthUI.h">
+      <Filter>SP4</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Enemy\Floopy.h">
+      <Filter>Enemy\Floopy</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Enemy\Bitey.h">
+      <Filter>Enemy\Bitey</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Enemy\BiteyState_Attack.h">
+      <Filter>Enemy\Bitey</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Boss\Phase1\BossMinion.h">
+      <Filter>Boss\Skywhale\Phase1</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Boss\Phase1\GraveStoneEntity.h">
+      <Filter>Boss\Skywhale\Phase1</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Boss\Phase1\SkyWhalePhase1.h">
+      <Filter>Boss\Skywhale\Phase1</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Boss\Phase1\SpawnState.h">
+      <Filter>Boss\Skywhale\Phase1</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Boss\Phase2\AngryState.h">
+      <Filter>Boss\Skywhale\Phase2</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Boss\Phase2\SkyWhalePhase2.h">
+      <Filter>Boss\Skywhale\Phase2</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Boss\BossEntity.h">
+      <Filter>Boss\BossBase</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Boss\SkyWhale.h">
+      <Filter>Boss\Skywhale</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Weapon\BossLazerWeapon.h">
+      <Filter>Weapon\Boss Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Projectile\BossLazerBody.h">
+      <Filter>Projectile\Boss Projectile</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Projectile\BossLazerStart.h">
+      <Filter>Projectile\Boss Projectile</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Particle\ParticleBase.h">
+      <Filter>Particle</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Particle\ParticleScale.h">
+      <Filter>Particle\ParticleScale</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SP4\SceneBoss2.h">
+      <Filter>SP4\SceneBoss2</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Weapon\BossRapidFireWeapon.h">
+      <Filter>Weapon\Boss Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SP4\HealthBarRenderer.h">
+      <Filter>SP4\Healh Bar Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SP4\EnvironmentObject.h">
+      <Filter>SP4\Environtmental Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SP4\Wall.h">
+      <Filter>SP4</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\GameStateManagement\GameModeSelectionState.h">
+      <Filter>GameStateManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\GameStateManagement\VictoryState.h">
+      <Filter>GameStateManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SP4\SceneEndless.h">
+      <Filter>SP4\Scene Endless</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\GameStateManagement\SelectionState.h">
+      <Filter>GameStateManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SP4\SceneTutorial.h">
+      <Filter>SP4\SceneTutorial</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

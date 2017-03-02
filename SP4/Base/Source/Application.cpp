@@ -18,10 +18,16 @@
 #include <stdlib.h>
 
 #include "SceneText2.h"
+#include "GameStateManagement\IntroState.h"
 #include "GameStateManagement\MenuState.h"
+#include "GameStateManagement\SelectionState.h"
 #include "GameStateManagement\PauseState.h"
-#include "SP4\SceneTest.h"
+#include "GameStateManagement\GameModeSelectionState.h"
 #include "SP4\SceneScrolling.h"
+#include "SP4\SceneBoss.h"
+#include "SP4\SceneTutorial.h"
+#include "SP4\SceneBoss2.h"
+#include "SP4\SceneEndless.h"
 
 GLFWwindow* m_window;
 const unsigned char FPS = 60; // FPS of this game
@@ -60,7 +66,8 @@ bool Application::IsFocused()
 
 Application::Application():
 m_window_width(640),
-m_window_height(480)
+m_window_height(480),
+closeProgram(false)
 {
 }
 
@@ -111,23 +118,6 @@ void Application::InitDisplay(void)
 
 	// Tell the graphics manager to use the shader we just loaded
 	GraphicsManager::GetInstance()->SetActiveShader("default");
-
-	//// Load all the meshes
-	//MeshBuilder::GetInstance()->GenerateAxes("axis");
-	//MeshBuilder::GetInstance()->GenerateCrossHair("crosshair");
-	//MeshBuilder::GetInstance()->GenerateQuad("quad", Color(1, 1, 1), 1.f);
-	//MeshBuilder::GetInstance()->GenerateCircle("circle", Color(1, 0, 1), 36, 1);
-	//MeshBuilder::GetInstance()->GetMesh("quad")->textureID = LoadTGA("Image//calibri.tga");
-	//MeshBuilder::GetInstance()->GenerateText("text", 16, 16);
-	//MeshBuilder::GetInstance()->GetMesh("text")->textureID = LoadTGA("Image//calibri.tga");
-	//MeshBuilder::GetInstance()->GetMesh("text")->material.kAmbient.Set(1, 0, 0);
-	//MeshBuilder::GetInstance()->GenerateRing("ring", Color(1, 0, 1), 36, 1, 0.5f);
-	//MeshBuilder::GetInstance()->GenerateSphere("lightball", Color(1, 1, 1), 18, 36, 1.f);
-	//MeshBuilder::GetInstance()->GenerateSphere("sphere", Color(1, 0, 0), 18, 36, 1.f);
-	//MeshBuilder::GetInstance()->GenerateCone("cone", Color(0.5f, 1, 0.3f), 36, 10.f, 10.f);
-	//MeshBuilder::GetInstance()->GenerateCube("cube", Color(1.0f, 1.0f, 0.0f), 1.0f);
-	//MeshBuilder::GetInstance()->GetMesh("cone")->material.kDiffuse.Set(0.99f, 0.99f, 0.99f);
-	//MeshBuilder::GetInstance()->GetMesh("cone")->material.kSpecular.Set(0.f, 0.f, 0.f);
 }
 
 void Application::Init()
@@ -153,7 +143,7 @@ void Application::Init()
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE); //We don't want the old OpenGL 
 
 	//Create a window and create its OpenGL context
-	m_window = glfwCreateWindow(m_window_width, m_window_height, "NYP Framework", NULL, NULL);
+	m_window = glfwCreateWindow(m_window_width, m_window_height, "FlapFlap Hunters", NULL, NULL);
 
 	//If the window couldn't be created
 	if (!m_window)
@@ -190,24 +180,38 @@ void Application::Init()
 	InitDisplay();
 	SoundManager::GetInstance()->Init();
 
+	SceneManager::GetInstance()->AddScene("IntroState", new IntroState());
 	SceneManager::GetInstance()->AddScene("MenuState", new MenuState());
+	SceneManager::GetInstance()->AddScene("GameModeSelectionState", new GameModeSelectionState());
+	SceneManager::GetInstance()->AddScene("SelectionState", new SelectionState());
 	SceneManager::GetInstance()->AddScene("PauseState", new PauseState());
-	SceneManager::GetInstance()->AddScene("SceneTest", new SceneTest());
 	SceneManager::GetInstance()->AddScene("SceneScrolling", new SceneScrolling());
-
-	SceneManager::GetInstance()->SetActiveScene("MenuState");
+	SceneManager::GetInstance()->AddScene("SceneBoss", new SceneBoss());
+	SceneManager::GetInstance()->AddScene("SceneTutorial", new SceneTutorial());
+	SceneManager::GetInstance()->AddScene("SceneBoss2", new SceneBoss2());
+    SceneManager::GetInstance()->AddScene("SceneEndless", new SceneEndless());
+	
+	SceneManager::GetInstance()->SetActiveScene("IntroState");
 }
 
 void Application::Run()
 {
-	//SoundManager::GetInstance()->LoadMedia("bgmTest", "Media//bgm_lullaby.wav");
-	//SoundManager::GetInstance()->LoadMedia("gunshot", "Media//gunshot.wav", 10, 100);
+	//sfx
+	SoundManager::GetInstance()->LoadMedia("player_range_attack", "Media//Range Player Attack.wav");
+	SoundManager::GetInstance()->LoadMedia("player_melee_attack", "Media//Melee Player Attack.wav");
+	SoundManager::GetInstance()->LoadMedia("player_melee_shield", "Media//Player Shield Sound.wav");
+	SoundManager::GetInstance()->LoadMedia("floopy_attack", "Media//Enemy Sound.wav");
+	SoundManager::GetInstance()->LoadMedia("bitey_attack", "Media//Player Range Attack(2).wav");
+	SoundManager::GetInstance()->LoadMedia("skywhale_chargeLaser", "Media//Boss Charging.wav");
+	SoundManager::GetInstance()->LoadMedia("skywhale_fireLaser", "Media//Boss Lazer Sound.wav");
+	//bgm
+	SoundManager::GetInstance()->LoadBGM("bossfight", "Media//Normal Boss Fight sound.wav");
+	SoundManager::GetInstance()->LoadBGM("bossfight_angry", "Media//Angry Boss Fight Sound.wav");
 
-	//SoundManager::GetInstance()->PlaySound2D("bgmTest");
-	
 	m_timer.startTimer();    // Start timer to calculate how long it takes to render this frame
 	SceneManager* ttt = SceneManager::GetInstance();
-	while (!glfwWindowShouldClose(m_window) && !IsKeyPressed(VK_ESCAPE))
+
+	while (!glfwWindowShouldClose(m_window) && !closeProgram)
 	{
 		glfwPollEvents();
 		if (IsFocused())
@@ -220,11 +224,13 @@ void Application::Run()
 		glfwSwapBuffers(m_window);
 		//Get and organize events, like keyboard and mouse input, window resizing, etc...
 
-        m_timer.waitUntil(frameTime);       // Frame rate limiter. Limits each frame to a specified time in ms.   
+        m_timer.waitUntil(frameTime);// Frame rate limiter. Limits each frame to a specified time in ms.   
 		if (IsFocused())
 			PostInputUpdate();
 	}
+
 	SceneManager::GetInstance()->Exit();
+	SoundManager::GetInstance()->Destroy();
 }
 
 void Application::Exit()
@@ -280,14 +286,43 @@ void Application::MouseScrollCallbacks(GLFWwindow* window, double xoffset, doubl
 
 void Application::HideCursor()
 {
-	MouseController::GetInstance()->SetKeepMouseCentered(true);
 	glfwSetInputMode(m_window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
+	Application::GetInstance().SetIsCursorShown(false);
 }
 
 void Application::ShowCursor()
 {
-	MouseController::GetInstance()->SetKeepMouseCentered(false);
 	glfwSetInputMode(m_window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+	Application::GetInstance().SetIsCursorShown(true);
+}
+
+void Application::LockCursor()
+{
+	MouseController::GetInstance()->SetKeepMouseCentered(true);
+}
+void Application::UnlockCursor()
+{
+	MouseController::GetInstance()->SetKeepMouseCentered(false);
+}
+void Application::SetCursorMode2D()
+{
+	ShowCursor();
+	UnlockCursor();
+}
+void Application::SetCursorMode3D()
+{
+	HideCursor();
+	LockCursor();
+}
+
+bool Application::GetisCursorLocked()
+{
+	return MouseController::GetInstance()->GetKeepMouseCentered();
+}
+
+void Application::Close()
+{
+	Application::GetInstance().SetCloseProgram(true);
 }
 
 int Application::GetWindowHeight()

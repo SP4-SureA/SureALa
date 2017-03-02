@@ -1,6 +1,5 @@
 #include "SpatialPartition.h"
 #include "stdio.h"
-#include "Collider\Collider.h"
 #include "GraphicsManager.h"
 #include "RenderHelper.h"
 
@@ -116,16 +115,16 @@ void CSpatialPartition::Update(void)
 		for (int j = 0; j<zNumOfGrid; j++)
 		{
 			theGrid[i*zNumOfGrid + j].Update(&MigrationList);
-			float distance = CalculateDistanceSquare(&(camera->GetCameraPos()), i, j);
+			float distance = CalculateDistanceSquare(&(camera->GetPosition()), i, j);
 
 			//Check if not visible || Out of render Range
-			if (!IsVisible(camera->GetCameraPos(), camera->GetCameraTarget() - camera->GetCameraPos(), i, j))
+			if (!IsVisible(camera->GetPosition(), camera->GetTarget() - camera->GetPosition(), i, j))
 			{
 				theGrid[i*zNumOfGrid + j].SetDetailLevel(LevelOfDetails::NO_DETAILS);
 			}
 			else
 			{
-				theGrid[i*zNumOfGrid + j].UpdateDetailLevel(camera->GetCameraPos());
+				theGrid[i*zNumOfGrid + j].UpdateDetailLevel(camera->GetPosition());
 			}
 		}
 	}

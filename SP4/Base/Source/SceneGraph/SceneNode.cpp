@@ -20,12 +20,12 @@ void SceneNode::Destroy(void)
 {
 	// Destroy the children first
 	std::vector<SceneNode*>::iterator it;
-	for (it = theChildren.begin(); it != theChildren.end(); ++it)
+	for (it = theChildren.begin(); it != theChildren.end();)
 	{
 		(*it)->Destroy();
 		(*it) = NULL;
 		delete *it;
-		theChildren.erase(it);
+		it = theChildren.erase(it);
 	}
 
 	// Reset the pointers for this node

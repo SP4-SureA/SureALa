@@ -3,12 +3,13 @@
 EntityBase::EntityBase()
 	: position(0.0f, 0.0f, 0.0f)
 	, scale(1.0f, 1.0f, 1.0f)
+	, front(Vector3(1, 0, 0))
 	, velocity(0.0f, 0.0f, 0.0f)
+	, weight(1.0f)
 	, b_IsDone(false)
 	, b_IsDead(false)
-	, b_HasCollider(false)
 	, b_DoUpdate(true)
-    , b_DoRender(true)
+	, b_DoRender(true)
 {
 }
 

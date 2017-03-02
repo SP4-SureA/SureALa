@@ -20,10 +20,10 @@ void Button::Update(double dt)
 
 bool Button::CheckCollision(Vector3 pos)
 {
-	if (pos.x > position.x + minAABB.x &&
-		pos.x < position.x + maxAABB.x &&
-		pos.y > position.y + minAABB.y &&
-		pos.y < position.y + maxAABB.y)
+	if (pos.x < position.x + scale.x * 0.5f &&
+		pos.x > position.x - scale.x * 0.5f &&
+		pos.y < position.y + scale.y * 0.5f &&
+		pos.y > position.y - scale.y * 0.5f)
 	{
 		return true;
 	}
@@ -44,13 +44,6 @@ void Button::Render()
 	modelStack.PopMatrix();
 }
 
-// Set the maxAABB and minAABB
-void Button::SetAABB(Vector3 maxAABB, Vector3 minAABB)
-{
-	this->maxAABB = maxAABB;
-	this->minAABB = minAABB;
-}
-
 Button* Create::button(EntityManager* em, const std::string& _meshName,
 	const Vector3& _position,
 	const Vector3& _scale)
@@ -64,8 +57,6 @@ Button* Create::button(EntityManager* em, const std::string& _meshName,
 	Button* result = new Button(modelMesh);
 	result->SetPosition(_position);
 	result->SetScale(_scale);
-	result->SetHasCollider(false);
-	result->SetAABB(_scale * 0.5f, -_scale * 0.5f);
 	em->AddEntity(result, true);
 	return result;
 }
@@ -81,7 +72,5 @@ Button* Create::AssetButton(EntityManager* em, const std::string& _meshName,
 	Button* result = new Button(modelMesh);
 	result->SetPosition(_position);
 	result->SetScale(_scale);
-	result->SetAABB(_scale * 0.5f, -_scale * 0.5f);
-	result->SetHasCollider(false);
 	return result;
 }

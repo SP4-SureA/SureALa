@@ -244,7 +244,7 @@ operator/ overload for scalar division
 */
 Vector3 Vector3::operator/(float scalar) const
 {
-	return Vector3(scalar / x, scalar / y, scalar / z);
+	return Vector3(x / scalar, y / scalar, z / scalar);
 }
 
 /******************************************************************************/

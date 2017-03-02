@@ -4,12 +4,6 @@
 #include "Vector3.h"
 #include "ProjectileBase.h"
 
-// Forward declaration
-namespace RakNet
-{
-	class BitStream;
-};
-
 class EnemyProjectileEntity : public ProjectileBase
 {
 public:
@@ -17,6 +11,7 @@ public:
     virtual ~EnemyProjectileEntity();
 
     virtual void Update(double dt);
+	virtual void CollisionResponse(EntityBase* other, double dt);
     virtual void Render();
 
 protected:
@@ -31,16 +26,14 @@ namespace Create
         const Vector3& _position = Vector3(0, 0, 0),
         const Vector3& _veloctiy = Vector3(0, 0, 0),
         const Vector3& _scale = Vector3(1.0f, 1.0f, 1.0f),
-        const int& ID = 0,
         const float& _damage = 0
         );
 
-    EnemyProjectileEntity* playerProjectileAsset(
+    EnemyProjectileEntity* enemyProjectileAsset(
         const std::string& _meshName,
         const Vector3& _position = Vector3(0, 0, 0),
         const Vector3& _veloctiy = Vector3(0, 0, 0),
         const Vector3& _scale = Vector3(1.0f, 1.0f, 1.0f),
-        const int& ID = 0,
         const float& _damage = 0
         );
 };

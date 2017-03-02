@@ -4,12 +4,6 @@
 #include "Vector3.h"
 #include "PlayerEntityBase.h"
 
-// Forward declaration
-namespace RakNet
-{
-	class BitStream;
-};
-
 class PlayerRangeEntity : public PlayerEntityBase
 {
 public:
@@ -22,17 +16,10 @@ public:
     virtual void Update(double dt);
     virtual void Render();
 
-	virtual void Read(RakNet::BitStream &bs);
-	virtual void Write(RakNet::BitStream &bs);
-
-	virtual void ReadInit(RakNet::BitStream &bs);
-	virtual void WriteInit(RakNet::BitStream &bs);
-
 	void MovementInputUpdate(double dt);
 	void WeaponInputUpdate(double dt);
 
 protected:
-
 };
 
 namespace Create

@@ -14,24 +14,19 @@ void SceneManager::Update(double _dt)
 {
 	if (sceneStack.size() > 0)
 	{
-		//// Check for change of scene
-		//if (nextScene != sceneStack.back())
-		//{
-		//	if (sceneStack.back())
-		//	{
-		//		// Scene is valid, need to call appropriate function to exit
-		//		sceneStack.back()->Exit();
-		//	}
-		//	sceneStack.pop_back();
-		//	sceneStack.push_back(nextScene);
-		//	sceneStack.back()->Init();
-		//}
-
-		//only update inputs of closest overlay
-		sceneStack.back()->UpdateInputs(_dt);
-		for (auto q : sceneStack)
+		if (nextScene != sceneStack.back())
 		{
-			q->Update(_dt);
+			sceneStack.back()->Exit();
+			sceneStack.pop_back();
+		}
+		else
+		{
+			//only update inputs of closest overlay
+			sceneStack.back()->UpdateInputs(_dt);
+			for (auto q : sceneStack)
+			{
+				q->Update(_dt);
+			}
 		}
 	}
 	else if (nextScene)
@@ -97,7 +92,7 @@ void SceneManager::RemoveScene(const std::string& _name)
 	// Does nothing if it does not exist
 	if (!CheckSceneExist(_name))
 		return;
-
+	
 	Scene* target = sceneMap[_name];
 	if (target == sceneStack.back() || target == nextScene)
 	{
@@ -118,9 +113,9 @@ void SceneManager::OverlayScene(const std::string& _name)
 	}
 
 	// Scene exist, set the next scene pointer to that scene
-	//nextScene = sceneMap[_name];
-	sceneMap[_name]->Init();
 	sceneStack.push_back(sceneMap[_name]);
+	nextScene = sceneStack.back();
+	nextScene->Init();
 }
 
 void SceneManager::SetActiveScene(const std::string& _name)
@@ -130,14 +125,11 @@ void SceneManager::SetActiveScene(const std::string& _name)
 		// Scene does not exist
 		throw std::exception("Scene does not exist");
 	}
-
-	while (sceneStack.size() > 0)
+	else
 	{
-		sceneStack.back()->Exit();
-		sceneStack.pop_back();
+		// Scene exist, set the next scene pointer to that scene
+		nextScene = sceneMap[_name];
 	}
-	// Scene exist, set the next scene pointer to that scene
-	nextScene = sceneMap[_name];
 }
 
 void SceneManager::ExitOverlayScene()
@@ -146,9 +138,7 @@ void SceneManager::ExitOverlayScene()
 	{
 		sceneStack.back()->Exit(); 
 		sceneStack.pop_back();
-		//nextScene->Exit();
-		//sceneStack.pop_back();
-		//nextScene = sceneStack.back();
+		nextScene = sceneStack.back();
 	}
 }
 

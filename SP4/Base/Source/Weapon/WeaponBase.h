@@ -2,18 +2,11 @@
 #define _WEAPON_BASE_H
 
 #include "Vector3.h"
-#include "../RakNet/NetworkEntity.h"
-
-// Forward declaration
-namespace RakNet
-{
-	class BitStream;
-};
+#include "EntityBase.h"
 
 class WeaponBase : public EntityBase
 {
 public:
-    
     virtual ~WeaponBase();
 
     inline void SetDamage(const float& _damage){ this->weaponDamage = _damage; };
@@ -24,6 +17,8 @@ public:
 
     virtual void Update(double dt);
 	virtual void Discharge(Vector3 Direction){};
+
+	bool GetCanFire(){ return this->b_canFire; };
 
 protected:
     WeaponBase();

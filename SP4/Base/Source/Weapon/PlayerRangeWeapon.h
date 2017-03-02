@@ -4,12 +4,6 @@
 #include "Vector3.h"
 #include "WeaponBase.h"
 
-// Forward declaration
-namespace RakNet
-{
-	class BitStream;
-};
-
 class PlayerRangeWeapon : public WeaponBase
 {
 public:
@@ -17,7 +11,7 @@ public:
     virtual ~PlayerRangeWeapon();
 
     virtual void Update(double dt);
-    virtual void Discharge(Vector3 Direction);
+	virtual void Discharge(Vector3 Direction);
 
 protected:
 };

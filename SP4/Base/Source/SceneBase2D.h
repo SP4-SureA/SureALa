@@ -27,11 +27,12 @@ public:
 	virtual void Exit();
 
 protected:
-	float worldWidth, worldHeight;
-	float orthoWidth, orthoHeight;
+	float canvasWidth, canvasHeight;//for UI placements
+	float worldWidth, worldHeight;//for game entites
+	float orthoWidth, orthoHeight;//for camera view size
 
 	ShaderProgram* currProg;
-	FPSCamera camera;
+	CameraBase* camera;
 	Light* lights[2];
 };
 

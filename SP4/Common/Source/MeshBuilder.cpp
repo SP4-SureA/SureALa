@@ -771,6 +771,7 @@ void MeshBuilder::AddMesh(const std::string& _meshName, Mesh* _newMesh)
 void MeshBuilder::RemoveMesh(const std::string& _meshName)
 {
 	Mesh* currMesh = GetMesh(_meshName);
+
 	if (currMesh != NULL)
 	{
 		delete currMesh;

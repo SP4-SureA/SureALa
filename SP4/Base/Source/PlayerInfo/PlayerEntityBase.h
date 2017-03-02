@@ -2,22 +2,14 @@
 #define _PLAYER_ENTITY_BASE_H
 
 #include "Vector3.h"
-#include "../RakNet/NetworkEntity.h"
-
+#include "../GenericEntity.h"
 #include "Animation.h"
-
-// Forward declaration
-namespace RakNet
-{
-	class BitStream;
-};
 
 class WeaponBase;
 
-class PlayerEntityBase : public NetworkEntity
+class PlayerEntityBase : public GenericEntity
 {
 public:
-	PlayerEntityBase(Mesh* _modelMesh);
 	virtual ~PlayerEntityBase();
 
 	virtual void UpdateAnimation(double dt);
@@ -27,19 +19,27 @@ public:
 	virtual void Update(double dt);
 	virtual void Render();
 
-	virtual void Read(RakNet::BitStream &bs);
-	virtual void Write(RakNet::BitStream &bs);
-
-	virtual void ReadInit(RakNet::BitStream &bs);
-	virtual void WriteInit(RakNet::BitStream &bs);
+	virtual void TakeDamage(int amount);
+	void Respawn();
 
 	inline void SetMoveDir(const Vector3& _value){ this->moveDirection = _value; };
-	inline void AddMoveDir(const Vector3& _value){ this->moveDirection += _value; };
+	inline void AddMoveDir(const Vector3& _value){ if (hasDropped) return; this->moveDirection += _value; };
 	inline Vector3 GetMoveDir(void){ return this->moveDirection; };
 
 	inline void SetShootDir(const Vector3& _dir){ this->shootDirection = _dir; };
-	inline void AddShootDir(const Vector3& _dir){ this->shootDirection += _dir; };
+	inline void AddShootDir(const Vector3& _dir){ if (hasDropped) return; this->shootDirection += _dir; };
 	inline Vector3 GetShootDir(void){ return this->shootDirection; };
+
+	inline void SetSpawnPoint(const Vector3& _point){ this->spawnPoint = _point; }
+	inline Vector3 GetSpawnPoint(){ return this->spawnPoint; }
+
+	inline void SetHasDropped(bool _bool){ this->hasDropped = _bool; }
+	inline bool GetHasDropped(){ return this->hasDropped; }
+
+	inline void SetDefaultScale(const Vector3& _scale){ this->defaultScale = _scale; }
+	inline Vector3 GetDefaultScale(){ return this->defaultScale; }
+
+	virtual void UseSpecial(){}
 
 	inline void SetMoveSpeed(const float& _value){ this->moveSpeed = _value; };
 	inline float GetMoveSpeed(void){ return this->moveSpeed; };
@@ -49,32 +49,26 @@ public:
 
 	AnimationPlayer animationPlayer;
 protected:
+	PlayerEntityBase(Mesh* _modelMesh);
+
+	void Drop();
+	virtual void HandleFloorCollision(double dt);
+
+	float bufferBlinkShowTimer;
+	float bufferBlinkHideTimer;
+	float bufferBlinkTimer;
+	float bufferTime;
 	float moveSpeed;
+
+	bool blinking;
+	bool hasDropped;
 
 	WeaponBase* weapon;
 
+	Vector3 spawnPoint;
+	Vector3 defaultScale;
 	Vector3 moveDirection;
 	Vector3 shootDirection;
-};
-
-namespace Create
-{
-	PlayerEntityBase* PlayerEntity(
-		EntityManager* em,
-		const std::string& _meshName,
-		float _moveSpeed = 0,
-		float _maxSpeed = 0,
-		const Vector3& _position = Vector3(0, 0, 0),
-		const Vector3& _scale = Vector3(1.0f, 1.0f, 1.0f)
-		);
-
-	PlayerEntityBase* PlayerAsset(
-		const std::string& _meshName,
-		float _moveSpeed = 0,
-		float _maxSpeed = 0,
-		const Vector3& _position = Vector3(0, 0, 0),
-		const Vector3& _scale = Vector3(1.0f, 1.0f, 1.0f)
-		);
 };
 
 #endif // _PLAYER_ENTITY_BASE_H

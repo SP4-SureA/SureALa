@@ -4,12 +4,23 @@
 #include "Vector3.h"
 
 SoundManager::SoundManager():
-activeSoundEngine(NULL)
+activeSoundEngine(NULL),
+bgm(NULL)
 {
 }
 
 SoundManager::~SoundManager()
 {
+	//{//clears soundmMap
+	//	std::map<std::string, ISoundSource*>::iterator it;
+	//	while (it != soundMap.end())
+	//		it = soundMap.erase(it);
+	//}
+	//{//clears bgmMap
+	//	std::map<std::string, ISound*>::iterator it;
+	//	while (it != bgmMap.end())
+	//		it = bgmMap.erase(it);
+	//}
 	if (activeSoundEngine != NULL)
 		activeSoundEngine->drop();
 }
@@ -21,6 +32,25 @@ void SoundManager::Init()
 	{
 		printf("Error starting up irrKlang sound engine\n");
 		return; // error starting up the sound engine
+	}
+}
+
+void SoundManager::PlayBGM(const std::string &soundName)
+{
+	//std::map<std::string, ISound*>::iterator it;
+	//it = std::find(bgmMap.begin(), bgmMap.end(), soundName);
+	//if (it != bgmMap.end())
+	{//if found
+		if (bgm == bgmMap[soundName])
+			return;
+
+		if (bgm)
+		{
+			bgm->setIsPaused(true);
+			bgm->setPlayPosition(0);
+		}
+		bgm = bgmMap[soundName];
+		bgm->setIsPaused(false);
 	}
 }
 
@@ -50,4 +80,9 @@ void SoundManager::LoadMedia(const std::string &soundName, char* fileLocation, d
 	soundMap[soundName]->setDefaultMinDistance(minDist);
 	soundMap[soundName]->setDefaultMaxDistance(maxDist);
 	soundMap[soundName]->setDefaultVolume(defaultVolume);
+}
+
+void SoundManager::LoadBGM(const std::string &soundName, char* fileLocation, double defaultVolume, float minDist, float maxDist)
+{
+	bgmMap[soundName] = activeSoundEngine->play2D(fileLocation, true, true);
 }

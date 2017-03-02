@@ -9,6 +9,15 @@
 class PauseState : public SceneBase2D
 {
 public:
+	enum BUTTONS
+	{
+		BTN_RESUME,
+		BTN_HELP,
+		BTN_MENU,
+		BTN_QUIT,
+
+		BTN_END
+	};
 	PauseState();
 	virtual ~PauseState();
 
@@ -19,9 +28,12 @@ public:
 	virtual void Exit();
 
 protected:
+	Vector3 mousePos;
+
 	GenericEntity* background;
-	Button* backBtn;
-	Button* menuBtn;
+	GenericEntity* selection;
+	Button* buttons[BTN_END];
+	int btnIndex;
 };
 
 #endif

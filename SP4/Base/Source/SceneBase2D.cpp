@@ -24,12 +24,15 @@
 #include <iostream>
 using namespace std;
 
-SceneBase2D::SceneBase2D()
+SceneBase2D::SceneBase2D():
+camera(NULL)
 {
 }
 
 SceneBase2D::~SceneBase2D()
 {
+	if (camera)
+		delete camera;
 }
 
 void SceneBase2D::Init()
@@ -59,15 +62,16 @@ void SceneBase2D::Init()
 	//lights[1]->power = 0.4f;
 	//lights[1]->name = "lights[1]";
 
-	GraphicsManager::GetInstance()->AttachCamera(&camera);
-
+	canvasWidth = Application::GetInstance().GetWindowWidth();
+	canvasHeight = Application::GetInstance().GetWindowHeight();
 	orthoHeight = 100;
 	orthoWidth = orthoHeight * ((float)Application::GetInstance().GetWindowWidth() / Application::GetInstance().GetWindowHeight());
 	worldHeight = 100;
 	worldWidth = worldHeight * ((float)Application::GetInstance().GetWindowWidth() / Application::GetInstance().GetWindowHeight());
 
 	// Create and attach the camera to the scene
-	camera.Init(Vector3(worldWidth * 0.5f, worldHeight * 0.5f, 1), Vector3(worldWidth * 0.5f, worldHeight * 0.5f, 0), Vector3(0, 1, 0));
+	camera = new FPSCamera();
+	camera->Init(Vector3(worldWidth * 0.5f, worldHeight * 0.5f, 1), Vector3(worldWidth * 0.5f, worldHeight * 0.5f, 0), Vector3(0, 1, 0));
 }
 
 void SceneBase2D::UpdateInputs(double dt)
@@ -84,6 +88,7 @@ void SceneBase2D::UpdateInputs(double dt)
 
 void SceneBase2D::Update(double dt)
 {
+	camera->Update(dt);
 	// Update our entities
 	entityManager->Update(dt);
 
@@ -127,14 +132,14 @@ void SceneBase2D::Render()
 	// Setup 3D pipeline then render 3D
 	float halfOrthoWidth = orthoWidth * 0.5f;
 	float halfOrthoHeight = orthoHeight * 0.5f;
-	GraphicsManager::GetInstance()->SetOrthographicProjection(-halfOrthoWidth, halfOrthoWidth, -halfOrthoHeight, halfOrthoHeight, -10, 10);
-	GraphicsManager::GetInstance()->AttachCamera(&camera);
+	GraphicsManager::GetInstance()->SetOrthographicProjection(-halfOrthoWidth, halfOrthoWidth, -halfOrthoHeight, halfOrthoHeight, -1000, 1000);
+	GraphicsManager::GetInstance()->AttachCamera(camera);
 	entityManager->Render();
 
 	// Setup 2D pipeline then render 2D
 	GraphicsManager::GetInstance()->SetOrthographicProjection(
-		0, Application::GetInstance().GetWindowWidth(),		// minX - maxX
-		0, Application::GetInstance().GetWindowHeight(),	// minY - maxY
+		0, canvasWidth,		// minX - maxX
+		0, canvasHeight,	// minY - maxY
 		-10, 10);											// minZ - maxZ
 	GraphicsManager::GetInstance()->DetachCamera();
 	entityManager->RenderUI();

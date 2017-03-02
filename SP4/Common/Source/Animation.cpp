@@ -26,7 +26,7 @@ void AnimationPlayer::Update(double dt)
 		//Animation current time increments with dt
 		m_currentTime += (float)dt;
 
-		// Get Animation current frame, m_currentFrame.
+		// Get Animation current frame, m_currentFrame
 		m_currentFrame = Math::Min(m_anim->endFrame + 1, m_anim->startFrame + (int)(m_currentTime / m_anim->timePerFrame));
 
 		// Check if m_currentTime is greater than or equal animTime
@@ -41,7 +41,6 @@ void AnimationPlayer::Update(double dt)
 			{
 				m_pause = true;
 				m_currentTime = 0.0f;
-				m_currentFrame = 0;
 			}
 		}
 	}

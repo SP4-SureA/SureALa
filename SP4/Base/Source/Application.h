@@ -29,6 +29,14 @@ public:
 
 	static void HideCursor();
 	static void ShowCursor();
+	static void LockCursor();
+	static void UnlockCursor();
+	static void SetCursorMode2D();
+	static void SetCursorMode3D();
+
+	static bool GetisCursorLocked();
+
+	static void Close();
 
 	int GetWindowHeight();
 	int GetWindowWidth();
@@ -36,6 +44,11 @@ public:
 	// Should make these not hard-coded :P
 	int m_window_width;
 	int m_window_height;
+
+	inline void SetCloseProgram(bool _close){ this->closeProgram = _close; }
+	
+	inline void SetIsCursorShown(bool _show){ this->isCursorShown = _show; }
+	inline bool GetIsCursorShown(){ return this->isCursorShown; }
 
 private:
 	Application();
@@ -46,6 +59,9 @@ private:
 	//Declare a window object
 	StopWatch m_timer;
 	ShaderProgram* currProg;
+	bool closeProgram;
+
+	bool isCursorShown;
 };
 
 #endif

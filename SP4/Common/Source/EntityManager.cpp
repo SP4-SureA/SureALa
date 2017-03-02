@@ -1,6 +1,5 @@
 #include "EntityManager.h"
 #include "EntityBase.h"
-#include "Collider/Collider.h"
 
 #include "MeshBuilder.h"
 #include "GraphicsManager.h"
@@ -17,9 +16,9 @@ void EntityManager::Update(double dt)
 	end = entityList.end();
 	for (it = entityList.begin(); it != end; ++it)
 	{
-		(*it)->UpdateAnimation(dt);
 		if ((*it)->GetShouldUpdate())
 			(*it)->Update(dt);
+		(*it)->UpdateAnimation(dt);
 	}
 	//SceneGraph::GetInstance()->Update();
 	//if (spatialPartition)
@@ -75,7 +74,8 @@ void EntityManager::Render()
 	end = entityList.end();
 	for (it = entityList.begin(); it != end; ++it)
 	{
-		(*it)->Render();
+		if ((*it)->GetShouldRender())
+			(*it)->Render();
 	}
 	//SceneGraph::GetInstance()->Render();
 
@@ -114,7 +114,6 @@ bool EntityManager::RemoveEntity(EntityBase* _existingEntity)
 	// Delete the entity if found
 	if (findIter != entityList.end())
 	{
-		EntityBase* placeHolder = *findIter;
 		findIter = entityList.erase(findIter);
 
 		//if (SceneGraph::GetInstance()->DeleteNode(_existingEntity) == false)
@@ -126,8 +125,6 @@ bool EntityManager::RemoveEntity(EntityBase* _existingEntity)
 		//	if (spatialPartition)
 		//		spatialPartition->Remove(_existingEntity);
 		//}
-
-		delete placeHolder;
 
 		return true;
 	}
@@ -183,26 +180,26 @@ EntityManager::~EntityManager()
 
 EntityBase* EntityManager::FindCollision_AABB(EntityBase *thisEntity)
 {
-	std::list<EntityBase*>::iterator colliderThat, colliderThatEnd;
-	colliderThatEnd = entityList.end();
+	//std::list<EntityBase*>::iterator colliderThat, colliderThatEnd;
+	//colliderThatEnd = entityList.end();
 
-	if (thisEntity->GetHasCollider())
-	{
-		for (colliderThat = entityList.begin(); colliderThat != colliderThatEnd; ++colliderThat)
-		{
-			if ((*colliderThat) == thisEntity)
-				continue;
+	//if (thisEntity->GetHasCollider())
+	//{
+	//	for (colliderThat = entityList.begin(); colliderThat != colliderThatEnd; ++colliderThat)
+	//	{
+	//		if ((*colliderThat) == thisEntity)
+	//			continue;
 
-			if ((*colliderThat)->GetHasCollider())
-			{
-				EntityBase *thatEntity = dynamic_cast<EntityBase*>(*colliderThat);
-				if (CheckAABBCollision(thisEntity, thatEntity) == true)
-				{
-					return thatEntity;
-				}
-			}
-		}
-	}
+	//		if ((*colliderThat)->GetHasCollider())
+	//		{
+	//			EntityBase *thatEntity = dynamic_cast<EntityBase*>(*colliderThat);
+	//			if (CheckAABBCollision(thisEntity, thatEntity) == true)
+	//			{
+	//				return thatEntity;
+	//			}
+	//		}
+	//	}
+	//}
 
 	return NULL;
 }
@@ -271,99 +268,105 @@ bool EntityManager::CheckOverlap(Vector3 thisMinAABB, Vector3 thisMaxAABB, Vecto
 // Check if this entity's bounding sphere collided with that entity's bounding sphere 
 bool EntityManager::CheckSphereCollision(EntityBase *ThisEntity, EntityBase *ThatEntity)
 {
-	CCollider *thisCollider = dynamic_cast<CCollider*>(ThisEntity);
-	CCollider *thatCollider = dynamic_cast<CCollider*>(ThatEntity);
+	//CCollider *thisCollider = dynamic_cast<CCollider*>(ThisEntity);
+	//CCollider *thatCollider = dynamic_cast<CCollider*>(ThatEntity);
 
-	// Get the minAABB and maxAABB for each entity
-	Vector3 thisMinAABB = ThisEntity->GetPosition() + thisCollider->GetMinAABB();
-	Vector3 thisMaxAABB = ThisEntity->GetPosition() + thisCollider->GetMaxAABB();
-	Vector3 thatMinAABB = ThatEntity->GetPosition() + thatCollider->GetMinAABB();
-	Vector3 thatMaxAABB = ThatEntity->GetPosition() + thatCollider->GetMaxAABB();
+	//// Get the minAABB and maxAABB for each entity
+	//Vector3 thisMinAABB = ThisEntity->GetPosition() + thisCollider->GetMinAABB();
+	//Vector3 thisMaxAABB = ThisEntity->GetPosition() + thisCollider->GetMaxAABB();
+	//Vector3 thatMinAABB = ThatEntity->GetPosition() + thatCollider->GetMinAABB();
+	//Vector3 thatMaxAABB = ThatEntity->GetPosition() + thatCollider->GetMaxAABB();
 
-	if (DistanceSquaredBetween(thisMinAABB, thisMaxAABB) +
-		DistanceSquaredBetween(thatMinAABB, thatMaxAABB)
-		>
-		DistanceSquaredBetween(ThisEntity->GetPosition(), ThatEntity->GetPosition()) * 2.0f)
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
+	//if (DistanceSquaredBetween(thisMinAABB, thisMaxAABB) +
+	//	DistanceSquaredBetween(thatMinAABB, thatMaxAABB)
+	//	>
+	//	DistanceSquaredBetween(ThisEntity->GetPosition(), ThatEntity->GetPosition()) * 2.0f)
+	//{
+	//	return true;
+	//}
+	//else
+	//{
+	//	return false;
+	//}
+
+	return false;
 }
 
 // Check if this entity collided with another entity, but both must have collider
 bool EntityManager::CheckAABBCollision(EntityBase *ThisEntity, EntityBase *ThatEntity)
 {
-	CCollider *thisCollider = dynamic_cast<CCollider*>(ThisEntity);
-	CCollider *thatCollider = dynamic_cast<CCollider*>(ThatEntity);
+	//CCollider *thisCollider = dynamic_cast<CCollider*>(ThisEntity);
+	//CCollider *thatCollider = dynamic_cast<CCollider*>(ThatEntity);
 
-	// Get the minAABB and maxAABB for each entity
-	Vector3 thisMinAABB = ThisEntity->GetPosition() + thisCollider->GetMinAABB();
-	Vector3 thisMaxAABB = ThisEntity->GetPosition() + thisCollider->GetMaxAABB();
-	Vector3 thatMinAABB = ThatEntity->GetPosition() + thatCollider->GetMinAABB();
-	Vector3 thatMaxAABB = ThatEntity->GetPosition() + thatCollider->GetMaxAABB();
+	//// Get the minAABB and maxAABB for each entity
+	//Vector3 thisMinAABB = ThisEntity->GetPosition() + thisCollider->GetMinAABB();
+	//Vector3 thisMaxAABB = ThisEntity->GetPosition() + thisCollider->GetMaxAABB();
+	//Vector3 thatMinAABB = ThatEntity->GetPosition() + thatCollider->GetMinAABB();
+	//Vector3 thatMaxAABB = ThatEntity->GetPosition() + thatCollider->GetMaxAABB();
 
-	return(
-		thisMaxAABB.x > thatMinAABB.x &&
-		thisMinAABB.x < thatMaxAABB.x &&
-		thisMaxAABB.y > thatMinAABB.y &&
-		thisMinAABB.y < thatMaxAABB.y &&
-		thisMaxAABB.z > thatMinAABB.z &&
-		thisMinAABB.z < thatMaxAABB.z
-		)
-		||
-		(
-		thatMaxAABB.x > thisMinAABB.x &&
-		thatMinAABB.x < thisMaxAABB.x &&
-		thatMaxAABB.y > thisMinAABB.y &&
-		thatMinAABB.y < thisMaxAABB.y &&
-		thatMaxAABB.z > thisMinAABB.z &&
-		thatMinAABB.z < thisMaxAABB.z
-		);
+	//return(
+	//	thisMaxAABB.x > thatMinAABB.x &&
+	//	thisMinAABB.x < thatMaxAABB.x &&
+	//	thisMaxAABB.y > thatMinAABB.y &&
+	//	thisMinAABB.y < thatMaxAABB.y &&
+	//	thisMaxAABB.z > thatMinAABB.z &&
+	//	thisMinAABB.z < thatMaxAABB.z
+	//	)
+	//	||
+	//	(
+	//	thatMaxAABB.x > thisMinAABB.x &&
+	//	thatMinAABB.x < thisMaxAABB.x &&
+	//	thatMaxAABB.y > thisMinAABB.y &&
+	//	thatMinAABB.y < thisMaxAABB.y &&
+	//	thatMaxAABB.z > thisMinAABB.z &&
+	//	thatMinAABB.z < thisMaxAABB.z
+	//	);
 
-	//if (CheckOverlap(thisMinAABB, thisMaxAABB, thatMinAABB, thatMaxAABB))
-	//	return true;
-	//
-	//Vector3 altThisMinAABB = Vector3(thisMinAABB.x, thisMinAABB.y, thisMaxAABB.z);
-	//Vector3 altThisMaxAABB = Vector3(thisMaxAABB.x, thisMaxAABB.y, thisMinAABB.z);
+	////if (CheckOverlap(thisMinAABB, thisMaxAABB, thatMinAABB, thatMaxAABB))
+	////	return true;
+	////
+	////Vector3 altThisMinAABB = Vector3(thisMinAABB.x, thisMinAABB.y, thisMaxAABB.z);
+	////Vector3 altThisMaxAABB = Vector3(thisMaxAABB.x, thisMaxAABB.y, thisMinAABB.z);
 
-	//if (CheckOverlap(altThisMinAABB, altThisMaxAABB, thatMinAABB, thatMaxAABB))
-	//	return true;
+	////if (CheckOverlap(altThisMinAABB, altThisMaxAABB, thatMinAABB, thatMaxAABB))
+	////	return true;
 
-	//return false;
+	////return false;
+
+	return false;
 }
 
 bool EntityManager::CheckAABBCollision(Vector3 pos, Vector3 min, Vector3 max, EntityBase *ThatEntity)
 {
-	CCollider thisCollider;
-	thisCollider.SetAABB(max, min);
-	CCollider *thatCollider = dynamic_cast<CCollider*>(ThatEntity);
+	//CCollider thisCollider;
+	//thisCollider.SetAABB(max, min);
+	//CCollider *thatCollider = dynamic_cast<CCollider*>(ThatEntity);
 
-	// Get the minAABB and maxAABB for each entity
-	Vector3 thisMinAABB = pos + thisCollider.GetMinAABB();
-	Vector3 thisMaxAABB = pos + thisCollider.GetMaxAABB();
-	Vector3 thatMinAABB = ThatEntity->GetPosition() + thatCollider->GetMinAABB();
-	Vector3 thatMaxAABB = ThatEntity->GetPosition() + thatCollider->GetMaxAABB();
+	//// Get the minAABB and maxAABB for each entity
+	//Vector3 thisMinAABB = pos + thisCollider.GetMinAABB();
+	//Vector3 thisMaxAABB = pos + thisCollider.GetMaxAABB();
+	//Vector3 thatMinAABB = ThatEntity->GetPosition() + thatCollider->GetMinAABB();
+	//Vector3 thatMaxAABB = ThatEntity->GetPosition() + thatCollider->GetMaxAABB();
 
-	return(
-		thisMaxAABB.x > thatMinAABB.x &&
-		thisMinAABB.x < thatMaxAABB.x &&
-		thisMaxAABB.y > thatMinAABB.y &&
-		thisMinAABB.y < thatMaxAABB.y &&
-		thisMaxAABB.z > thatMinAABB.z &&
-		thisMinAABB.z < thatMaxAABB.z
-		)
-		||
-		(
-		thatMaxAABB.x > thisMinAABB.x &&
-		thatMinAABB.x < thisMaxAABB.x &&
-		thatMaxAABB.y > thisMinAABB.y &&
-		thatMinAABB.y < thisMaxAABB.y &&
-		thatMaxAABB.z > thisMinAABB.z &&
-		thatMinAABB.z < thisMaxAABB.z
-		);
+	//return(
+	//	thisMaxAABB.x > thatMinAABB.x &&
+	//	thisMinAABB.x < thatMaxAABB.x &&
+	//	thisMaxAABB.y > thatMinAABB.y &&
+	//	thisMinAABB.y < thatMaxAABB.y &&
+	//	thisMaxAABB.z > thatMinAABB.z &&
+	//	thisMinAABB.z < thatMaxAABB.z
+	//	)
+	//	||
+	//	(
+	//	thatMaxAABB.x > thisMinAABB.x &&
+	//	thatMinAABB.x < thisMaxAABB.x &&
+	//	thatMaxAABB.y > thisMinAABB.y &&
+	//	thatMinAABB.y < thisMaxAABB.y &&
+	//	thatMaxAABB.z > thisMinAABB.z &&
+	//	thatMinAABB.z < thisMaxAABB.z
+	//	);
+
+	return false;
 }
 
 // Check if any Collider is colliding with another Collider

@@ -1,3 +1,3 @@
-title = "AGdev_Assignment02"
-width = 800
-height = 600
+title = "FlapFlap Hunters"
+width = 1920
+height = 1080

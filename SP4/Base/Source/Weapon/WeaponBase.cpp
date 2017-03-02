@@ -1,5 +1,4 @@
 #include "WeaponBase.h"
-#include "Bitstream.h"
 #include "KeyboardController.h"
 #include "MeshBuilder.h"
 #include "EntityManager.h"
@@ -7,7 +6,7 @@
 #include "RenderHelper.h"
 
 WeaponBase::WeaponBase() : 
-b_canFire(true),
+b_canFire(false),
 weaponDamage(0),
 fireRate(0),
 bulletDelay(0)
@@ -31,4 +30,3 @@ void WeaponBase::Update(double dt)
         }
     }
 }
-

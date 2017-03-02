@@ -6,8 +6,8 @@
 class Scene
 {
 public:
-	Scene() : entityManager(new EntityManager()) {}
-	virtual ~Scene() { if (entityManager){ delete entityManager; } }
+	Scene() : entityManager(NULL) {}
+	virtual ~Scene(){}// { if (entityManager){ delete entityManager; } }
 
 	virtual void Init() = 0;
 	virtual void UpdateInputs(double dt){}

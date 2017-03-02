@@ -7,6 +7,15 @@
 
 class MenuState : public SceneBase2D
 {
+enum CURR_SELECTION
+{
+    PLAY = 0,
+    HELP,
+    OPTION,
+    EXIT,
+    NUM_SELECTION
+};
+
 public:
 	MenuState();
 	virtual ~MenuState();
@@ -17,9 +26,19 @@ public:
 	virtual void Render();
 	virtual void Exit();
 
+    void UpdateMouse();
+    void UpdateKeyboard();
+
 protected:
 	GenericEntity* background;
+
 	Button* playBtn;
+    Button* optionBtn;
+    Button* helpBtn;
+    Button* exitBtn;
+    Button* selectionIcon;
+
+    CURR_SELECTION currentSelection;
 };
 
-#endif
+#endif //MENU_STATE_H

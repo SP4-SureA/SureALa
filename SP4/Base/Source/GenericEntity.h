@@ -3,20 +3,10 @@
 
 #include "EntityBase.h"
 #include <string>
-#include "Collider/Collider.h"
 #include "LevelOfDetails.h"
 
 class Mesh;
 class EntityManager;
-
-enum COLLIDER_TYPE
-{
-    COLLIDER_NONE = 0,
-    COLLIDER_BOX,
-    COLLIDER_SPHERE,
-
-    NUM_COLLIDER_TYPE,
-};
 
 class GenericEntity : public EntityBase
 {
@@ -28,25 +18,17 @@ public:
 	virtual void Update(double dt);
 	virtual void Render();
 
-    inline void SetFront(const Vector3& _value){ this->front = _value; };
-    inline Vector3 GetFront(){ return this->front; };
+	inline void SetMesh(Mesh* mesh){ if (mesh){ this->modelMesh = mesh; } }
 
     inline void SetMaxSpeed(const float _value){ this->maxSpeed = _value; };
     inline float GetMaxSpeed(){ return this->maxSpeed; };
-
-    inline void SetColliderType(const COLLIDER_TYPE _type){ this->collider_Type = _type; };
-    inline COLLIDER_TYPE GetColliderType(){ return this->collider_Type; };
 
     void ClampSpeed();
 
 protected:
     float maxSpeed;
 
-    Vector3 front;
-
 	Mesh* modelMesh;
-
-    COLLIDER_TYPE collider_Type;
 };
 
 namespace Create

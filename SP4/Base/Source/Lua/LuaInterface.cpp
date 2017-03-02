@@ -1,6 +1,7 @@
 #include "LuaInterface.h"
 
 #include <iostream>
+#include <sstream>
 
 using std::cout;
 using std::cin;
@@ -32,7 +33,8 @@ bool LuaInterface::Init()
 
 	LoadLua("ErrorState", "LuaScripts//errorLookup.lua");
 
-	LoadLua("PlayerSettings", "LuaScripts//PlayerSettings.lua");
+	LoadLua("Player1_Controls", "LuaScripts//Player1_Controls.lua");
+	LoadLua("Player2_Controls", "LuaScripts//Player2_Controls.lua");
 
 	LoadLua("ApplicationSettings", "LuaScripts//ApplicationSettings.lua");
 
@@ -100,8 +102,17 @@ char LuaInterface::GetCharValue(std::string stringKey, const char* varName){
 	const char* cstr = lua_tolstring(luaMap[stringKey].luaState, -1, &len);
 
 	//if string not empty, return first char
-	if (len > 0)
+	if (len == 1)
 		return cstr[0];
+	else if (len > 1)
+	{
+		std::stringstream strValue;
+		strValue << cstr;
+
+		unsigned int intValue;
+		strValue >> intValue;
+		return (unsigned char)(intValue);
+	}
 
 	//esle return default vlaue of <Space>
 	else
@@ -231,5 +242,4 @@ void LuaInterface::Error(const char* errorCode)
 		std::cout << errorMsg << std::endl;
 	else
 		std::cout << errorCode << " is not valid.\n*** Please contact the developer ***" << std::endl;
-
 }

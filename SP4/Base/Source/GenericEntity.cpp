@@ -1,4 +1,5 @@
 #include "GenericEntity.h"
+
 #include "MeshBuilder.h"
 #include "EntityManager.h"
 #include "GraphicsManager.h"
@@ -6,9 +7,7 @@
 
 GenericEntity::GenericEntity(Mesh* _modelMesh): 
 modelMesh(_modelMesh),
-maxSpeed(0),
-front(0),
-collider_Type(COLLIDER_NONE)
+maxSpeed(0)
 {
 }
 
@@ -18,6 +17,7 @@ GenericEntity::~GenericEntity()
 
 void GenericEntity::Update(double dt)
 {
+	EntityBase::Update(dt);
 	position += velocity * dt;
 }
 
@@ -65,7 +65,6 @@ GenericEntity* Create::Entity(EntityManager* em,
 	GenericEntity* result = new GenericEntity(modelMesh);
 	result->SetPosition(_position);
 	result->SetScale(_scale);
-	result->SetHasCollider(false);
 	em->AddEntity(result, true);
 	return result;
 }
@@ -82,6 +81,5 @@ GenericEntity* Create::Asset(EntityManager* em,
 	GenericEntity* result = new GenericEntity(modelMesh);
 	result->SetPosition(_position);
 	result->SetScale(_scale);
-	result->SetHasCollider(false);
 	return result;
 }
